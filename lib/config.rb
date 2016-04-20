@@ -1,6 +1,6 @@
 module Vermillion
   PACKAGE_NAME = 'vermillion-client'
-  INSTALLED_DIR = '/Users/prieber/Work/Starburst Creative/vermillion-client-new' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
+  INSTALLED_DIR = '/Users/prieber/Work/Starburst Creative/vermillion-client' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
   LOG_DIR = INSTALLED_DIR + "/logs"
   DEFAULT_LOG = Vermillion::Log.new # no args means default log
   HELPER_DIR = INSTALLED_DIR + "/lib/helpers/"
@@ -16,8 +16,13 @@ module Vermillion
         Notify.configure do |c|
           c.plugins = []
         end
+
+        # check if configuration file exists
+        if !config_found?
+          raise "~/.vermillion.yml not found, this file must be created prior to running"
+        end
       rescue => e
-        Notify.error("#{e.to_s}\n#{e.backtrace.join("\n")}")
+        Notify.error("#{e.to_s}", show_time: false)
       end
     end
 
@@ -35,6 +40,22 @@ module Vermillion
         hash[key] = Vermillion.const_get(key)
       end
       hash
+    end
+
+    def config_found?
+      file = "#{File.expand_path(Dir.home)}/.vermillion.yml"
+
+      if File.exists? file
+        @@yml = ::YAML.load_file(file)
+        # symbolize keys
+        @@yml = @@yml.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+      end
+
+      !@@yml.nil?
+    end
+
+    def get(name)
+      @@yml[name.to_sym]
     end
   end
 end

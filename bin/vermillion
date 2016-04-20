@@ -12,6 +12,7 @@ require "cgi"
 require "notifaction"
 require 'digest/md5'
 require 'mime/types'
+require 'yaml'
 
 # include required files
 require_relative "../lib/kernel.rb"

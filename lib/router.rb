@@ -56,9 +56,9 @@ module Vermillion
           end
         end
       rescue RuntimeError => e
-        Notify.error("#{e.to_s}")
+        Notify.error("#{e.to_s}", show_time: false)
       rescue NameError => e
-        Notify.error("#{e.to_s}\n#{e.backtrace.join("\n")}")
+        Notify.error("#{e.to_s}\n#{e.backtrace.join("\n")}", show_time: false)
       end
     end
 
