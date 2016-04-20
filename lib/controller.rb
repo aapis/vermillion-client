@@ -8,6 +8,7 @@ module Vermillion
       # Perform pre-run tasks
       def pre_exec
         @format = Vermillion::Helper.load('formatting')
+        @network = Vermillion::Helper.load('network')
 
         OptionParser.new do |opt|
           opt.banner = "#{Vermillion::PACKAGE_NAME} controller command [...-flags]"

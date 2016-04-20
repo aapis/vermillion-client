@@ -7,10 +7,11 @@ module Vermillion
 
         $config.get(:servers).each do |hash|
           srv = hash['address']
-          https_endpoint = URI.parse("http://#{srv}")
+          http = 'http://'
+          http = 'https://' if hash['https']
 
           begin
-            resp = Net::HTTP.get_response(https_endpoint)
+            resp = @network.request(http + srv + '/api/update')
 
             # we don't really care why this failed, just that it did
             raise Errno::ECONNREFUSED if resp.code.to_i > 399
@@ -18,24 +19,25 @@ module Vermillion
             # handle JSON response
             # JSON.parse(resp.body)
           rescue Errno::ECONNREFUSED => e
-            Notify.warning("Request failed for #{https_endpoint}")
+            Notify.warning("Request failed for #{srv}")
           end
         end
       end
 
       def one(input)
         server = $config.get(:servers).select { |hash| hash['name'] == input }.first
-        https_endpoint = URI.parse("http://#{server['address']}")
+        http = 'http://'
+        http = 'https://' if server['https']
 
         begin
-          resp = Net::HTTP.get_response(https_endpoint)
+          resp = @network.request(http + server['address'] + '/api/update')
 
           # we don't really care why this failed, just that it did
           raise Errno::ECONNREFUSED if resp.code.to_i > 399
           # handle JSON response
           # JSON.parse(resp.body)
         rescue Errno::ECONNREFUSED => e
-          Notify.warning("Request failed for #{https_endpoint}")
+          Notify.warning("Request failed for #{server['address']}")
         end
       end
 

@@ -1,6 +1,6 @@
 # vermillion-client
 
-Interact with your vermillion-server instances
+Interact with your vermillion-server instances.
 
 ## Installation
 
