@@ -26,7 +26,7 @@ module Vermillion
 
       # Handle the request
       def exec(args = [])
-        self.send(@default_method.to_sym)
+        self.send(@default_method.to_sym, $request.param)
       end
 
       # Perform post-run cleanup tasks, such as deleting old logs
