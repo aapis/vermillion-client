@@ -1,6 +1,6 @@
 module Vermillion
   PACKAGE_NAME = 'vermillion-client'
-  INSTALLED_DIR = '/Users/prieber/Work/Starburst Creative/vermillion-client' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
+  INSTALLED_DIR = '/Users/prieber/Work/vermillion-client' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
   LOG_DIR = INSTALLED_DIR + "/logs"
   DEFAULT_LOG = Vermillion::Log.new # no args means default log
   HELPER_DIR = INSTALLED_DIR + "/lib/helpers/"
@@ -10,6 +10,8 @@ module Vermillion
   DEBUG = false
 
   class Cfg
+    @@yml = nil
+
     def bootstrap!
       begin
         # configure Notifaction gem
