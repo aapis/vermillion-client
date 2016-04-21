@@ -26,6 +26,8 @@ module Vermillion
 
       def one(input)
         server = $config.get(:servers).select { |hash| hash['name'] == input }.first
+
+        # warn user if the server is not defined
         return Notify.warning("Server not found: #{input}") unless server
 
         http = 'http://'
