@@ -12,6 +12,10 @@ module Vermillion
 
       private
 
+      def _verify(secret)
+
+      end
+
       def _request(url, type = :GET)
         url = URI(url)
 
