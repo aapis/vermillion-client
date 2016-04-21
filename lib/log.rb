@@ -74,7 +74,7 @@ module Vermillion
           raise ArgumentError, "Unknown log type - #{log_type}"
         end
       rescue => e
-        Notify.error(e.message)
+        Notify.error(e.message, show_time: false)
       end
 
       matchdata

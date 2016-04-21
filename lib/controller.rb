@@ -57,7 +57,7 @@ module Vermillion
         @default_method = name || user_defined_methods.first || :sample
 
         if !respond_to? default_method.to_sym, true
-          Notify.error("Command not found: #{name}")
+          Notify.error("Command not found: #{name}", show_time: false)
         end
 
         true
@@ -118,7 +118,7 @@ module Vermillion
 
           loaded
         rescue StandardError => e
-          Notify.error(e.message)
+          Notify.error(e.message, show_time: false)
         end
       end
     end

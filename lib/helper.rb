@@ -13,7 +13,7 @@ module Vermillion
           end
         end
       rescue => e
-        Notify.error(e.message)
+        Notify.error(e.message, show_time: false)
       end
     end
   end

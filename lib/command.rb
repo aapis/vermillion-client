@@ -41,14 +41,14 @@ module Vermillion
             end
 
             if !@response
-              Notify.error("Unable to locate #{branch} on the remote server or local working copy")
+              Notify.error("Unable to locate #{branch} on the remote server or local working copy", show_time: false)
             end
 
             branch
           rescue SystemExit, Interrupt
-            Notify.error("Interrupt caught, exiting")
+            Notify.error("Interrupt caught, exiting", show_time: false)
           rescue RuntimeError => e
-            Notify.error(e.message)
+            Notify.error(e.message, show_time: false)
           end
         end
 
@@ -86,7 +86,7 @@ module Vermillion
 
             @response
           rescue SystemExit, Interrupt
-            Notify.error("Interrupt caught, exiting")
+            Notify.error("Interrupt caught, exiting", show_time: false)
           end
         end
       end
@@ -104,7 +104,7 @@ module Vermillion
 
           $?.exitstatus == 0
         rescue SystemExit, Interrupt
-          Notify.error("Interrupt caught, exiting")
+          Notify.error("Interrupt caught, exiting", show_time: false)
         end
       end
 
@@ -124,7 +124,7 @@ module Vermillion
 
           $?.exitstatus == 0
         rescue SystemExit, Interrupt
-          Notify.error("Interrupt caught, exiting")
+          Notify.error("Interrupt caught, exiting", show_time: false)
         end
       end
 
@@ -144,7 +144,7 @@ module Vermillion
             `$EDITOR #{log_file.path}`
           end
         rescue SystemExit, Interrupt
-          Notify.error("Interrupt caught, exiting")
+          Notify.error("Interrupt caught, exiting", show_time: false)
         end
       end
 
@@ -171,7 +171,7 @@ module Vermillion
           # support chaining
           self
         rescue SystemExit, Interrupt
-          Notify.error("Interrupt caught, exiting")
+          Notify.error("Interrupt caught, exiting", show_time: false)
         end
       end
     end

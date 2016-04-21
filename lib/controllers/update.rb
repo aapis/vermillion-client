@@ -11,7 +11,7 @@ module Vermillion
           http = 'https://' if hash['https']
 
           begin
-            resp = @network.request(http + srv + '/api/update')
+            resp = @network.post(http + srv + '/api/update')
 
             # we don't really care why this failed, just that it did
             raise Errno::ECONNREFUSED if resp.code.to_i > 399
@@ -34,8 +34,8 @@ module Vermillion
         http = 'https://' if server['https']
 
         begin
-          resp = @network.request(http + server['address'] + '/api/update')
-
+          resp = @network.post(http + server['address'] + '/api/update')
+          puts resp.body
           # we don't really care why this failed, just that it did
           raise Errno::ECONNREFUSED if resp.code.to_i > 399
           # handle JSON response

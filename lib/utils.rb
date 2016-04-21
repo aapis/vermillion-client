@@ -95,7 +95,7 @@ module Vermillion
           end
         )
       rescue err
-        Notify.error(err.message)
+        Notify.error(err.message, show_time: false)
       end
     end
 
