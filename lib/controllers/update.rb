@@ -31,12 +31,9 @@ module Vermillion
         http = 'https://' if server['https']
 
         begin
-          if remote_site
-            resp = @network.post(http + server['address'] + endpoint + remote_site)
-          else
-            resp = @network.post(http + server['address'] + endpoint)
-          end
-          puts resp.body
+          endpoint = endpoint + remote_site if remote_site
+          
+          resp = @network.post(http + server['address'] + endpoint)
 
           # generic failure for invalid response type
           raise Errno::ECONNREFUSED if resp["Content-Type"] != "application/json"
