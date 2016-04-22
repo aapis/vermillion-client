@@ -26,6 +26,8 @@ module Vermillion
 
         # warn user if the server is not defined
         return Notify.warning("Server not found: #{server_name}") unless server
+        # warn user if the site does not have a secret key property set
+        return Notify.warning("The server configuration must contain a key property to send requests") unless server['key']
 
         http = 'http://'
         http = 'https://' if server['https']
