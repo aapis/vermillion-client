@@ -32,9 +32,9 @@ module Vermillion
 
         begin
           endpoint = endpoint + remote_site if remote_site
-          
-          resp = @network.post(http + server['address'] + endpoint)
 
+          resp = @network.post(http + server['address'] + endpoint, server['key'])
+          puts resp.body
           # generic failure for invalid response type
           raise Errno::ECONNREFUSED if resp["Content-Type"] != "application/json"
 
@@ -61,7 +61,7 @@ module Vermillion
           http = 'https://' if hash['https']
 
           begin
-            resp = @network.post(http + srv + endpoint)
+            resp = @network.post(http + srv + endpoint, server['key'])
 
             # generic failure for invalid response type
             raise Errno::ECONNREFUSED if resp["Content-Type"] != "application/json"
