@@ -1,9 +1,9 @@
 module Vermillion
   module Controller
-    class Update < Controller::Base
+    class Change < Controller::Base
 
-      def one(server)
-        send_to_one(server, :config)
+      def branch(server)
+        send_to_one(server, :change_branch)
       end
 
     end

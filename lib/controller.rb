@@ -86,7 +86,8 @@ module Vermillion
         # setup request values
         server_name = input
         remote_site = nil
-        server_name, remote_site = input.split('/') if input.include?('/')
+        server_name, remote_site, other = input.split('/') if input.include?('/')
+
         endpoint = "/api/#{endpoint}/"
 
         server = $config.get(:servers).select { |hash| hash['name'] == server_name }.first
@@ -102,7 +103,8 @@ module Vermillion
         http = 'https://' if server['https']
 
         begin
-          endpoint = api_endpoint + remote_site if remote_site
+          endpoint += remote_site if remote_site
+          endpoint += "/#{other}" if other
           resp = @network.post(http + server['address'] + endpoint, server['key'])
           puts resp.body
 
