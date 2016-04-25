@@ -3,15 +3,15 @@ module Vermillion
     class Update < Controller::Base
 
       def all
-        _send_to_all('/api/update/')
+        _send_to_all(:update)
       end
 
       def one(server)
-        _send_to_one(server, '/api/update/')
+        _send_to_one(server, :update)
       end
 
       def config(server)
-        _send_to_one(server, '/api/update_config/')
+        _send_to_one(server, :update_config)
       end
 
       private
@@ -21,6 +21,7 @@ module Vermillion
         server_name = input
         remote_site = nil
         server_name, remote_site = input.split('/') if input.include?('/')
+        endpoint = "/api/#{endpoint}/"
 
         server = $config.get(:servers).select { |hash| hash['name'] == server_name }.first
 
@@ -33,10 +34,10 @@ module Vermillion
         http = 'https://' if server['https']
 
         begin
-          endpoint = endpoint + remote_site if remote_site
-
+          endpoint = api_endpoint + remote_site if remote_site
           resp = @network.post(http + server['address'] + endpoint, server['key'])
           puts resp.body
+
           # generic failure for invalid response type
           raise Errno::ECONNREFUSED if resp["Content-Type"] != "application/json"
 
@@ -56,6 +57,7 @@ module Vermillion
 
       def _send_to_all(endpoint)
         servers = $config.get(:servers)
+        endpoint = "/api/#{endpoint}"
 
         $config.get(:servers).each do |hash|
           srv = hash['address']

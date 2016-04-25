@@ -26,6 +26,10 @@ module Vermillion
         end
 
         req.add_field('X-Vermillion-Key', key)
+        req.add_field('Accept', 'application/json')
+        req.add_field('Cache-Control', 'no-cache')
+        req.add_field('From', $config.get(:user))
+        req.add_field('User-Agent', 'Vermillion Client 1.0')
 
         res = Net::HTTP.new(url.host, url.port).start do |http|
           http.request(req)
