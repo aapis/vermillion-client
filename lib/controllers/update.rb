@@ -29,6 +29,8 @@ module Vermillion
         return Notify.warning("Server not found: #{server_name}") unless server
         # warn user if the site does not have a secret key property set
         return Notify.warning("The server configuration must contain a key property to send requests") unless server['key']
+        # warn user if the user key is not defined
+        return Notify.warning("The configuration file must contain a user") unless $config.get(:user)
 
         http = 'http://'
         http = 'https://' if server['https']
@@ -59,10 +61,17 @@ module Vermillion
         servers = $config.get(:servers)
         endpoint = "/api/#{endpoint}"
 
-        $config.get(:servers).each do |hash|
-          srv = hash['address']
+        $config.get(:servers).each do |server|
+          srv = server['address']
           http = 'http://'
-          http = 'https://' if hash['https']
+          http = 'https://' if server['https']
+
+          # warn user if the server is not defined
+          return Notify.warning("Server not found: #{server['name']}") unless server['name']
+          # warn user if the site does not have a secret key property set
+          return Notify.warning("The server configuration must contain a key property to send requests") unless server['key']
+          # warn user if the user key is not defined
+          return Notify.warning("The configuration file must contain a user") unless $config.get(:user)
 
           begin
             resp = @network.post(http + srv + endpoint, server['key'])
