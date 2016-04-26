@@ -26,6 +26,7 @@ module Vermillion
           endpoint += remote_site if remote_site
           endpoint += "/#{other}" if other
           resp = @network.post(http + server['address'] + endpoint, server['key'])
+          #puts http + server['address'] + endpoint
           puts resp.body
 
           # generic failure for invalid response type
@@ -38,10 +39,10 @@ module Vermillion
           response_data = JSON.parse(resp.body)
 
           if response_data['_code'] === 200
-            Notify.success("#{resp['Host']} updated")
+            Notify.success("#{server_name} (#{server['address']}) updated")
           end
         rescue Errno::ECONNREFUSED => e
-          Notify.warning("Request failed for #{server['address']}")
+          Notify.warning("Request failed for #{server_name} (#{server['address']})")
         end
       end
 
