@@ -19,7 +19,7 @@ module Vermillion
         return Notify.warning("The configuration file must contain a user") unless $config.get(:user)
 
         http = 'http://'
-        http = 'https://' if server['https']
+        http = 'https://' if server[:https]
 
         begin
           endpoint += remote_site if remote_site
@@ -36,9 +36,8 @@ module Vermillion
 
           # handle JSON response
           response_data = @format.symbolize(JSON.parse(resp.body))
-          puts response_data.inspect
 
-          if response_data['_code'] === 200
+          if response_data[:_code] === 200
             Notify.success("#{server_name} (#{server[:address]}) updated")
           end
         rescue Errno::ECONNREFUSED => e
