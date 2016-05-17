@@ -4,7 +4,7 @@ module Vermillion
       attr_accessor :model, :helper, :methods_require_internet, :default_method
 
       @@options = Hash.new
-      
+
       # Perform pre-run tasks
       def pre_exec
         @format = Vermillion::Helper.load('formatting')
@@ -36,12 +36,11 @@ module Vermillion
 
       # Perform post-run cleanup tasks, such as deleting old logs
       def post_exec(total_errors = 0, total_warnings = 0, total_files = 0)
-        
+
       end
 
       # Determines if the command can execute
       def can_exec?(command = nil, name = nil)
-        @model = Vermillion::Model.const_get(command.capitalize).new rescue nil
         @helper = Vermillion::Helper.const_get(command.capitalize).new rescue nil
         @methods_require_internet = []
 
@@ -86,12 +85,12 @@ module Vermillion
       # autoload and instantiate required libraries, models and helpers
       def auto_load_required(modules = [])
         loaded = {:controller => {}, :helper => {}, :model => {}}
-        
+
         begin
           modules.each do |mod|
             if File.exists? "#{Vermillion::INSTALLED_DIR}/lib/controllers/#{mod}.rb"
               require "#{Vermillion::INSTALLED_DIR}/lib/controllers/#{mod}.rb"
-              
+
               loaded[:controller][mod] = Vermillion::Controller.const_get(mod.capitalize).new
             else
               raise StandardError, "Controller not found: #{mod}"
@@ -103,16 +102,6 @@ module Vermillion
 
               # auto-instantiate new instance of helper for the new instance of the controller
               loaded[:controller][mod].helper = loaded[:helper][mod]
-            end
-
-            if File.exists? "#{Vermillion::INSTALLED_DIR}/lib/models/#{mod}.rb"
-              require "#{Vermillion::INSTALLED_DIR}/lib/models/#{mod}.rb"
-              loaded[:model][mod] = Vermillion::Model.const_get(mod.capitalize).new
-
-              # auto-instantiate new instance of model for the new instance of the controller
-              loaded[:controller][mod].model = loaded[:model][mod]
-            else
-              loaded[:controller][mod].model = Model::Base.new
             end
           end
 
