@@ -9,7 +9,6 @@ module Vermillion
         server_name, remote_site, other = input.split('/') if input.include?('/')
 
         endpoint = "/api/#{endpoint}/"
-
         server = $config.get(:servers).select { |hash| hash[:name] == server_name }.first
 
         # warn user if the server is not defined
@@ -26,7 +25,7 @@ module Vermillion
           endpoint += remote_site if remote_site
           endpoint += "/#{other}" if other
           resp = @network.post(http + server[:address] + endpoint, server[:key])
-          #puts http + server['address'] + endpoint
+          # puts http + server[:address] + endpoint
           puts resp.body
 
           # generic failure for invalid response type
@@ -36,7 +35,8 @@ module Vermillion
           raise Errno::ECONNREFUSED if resp.code.to_i > 399
 
           # handle JSON response
-          response_data = JSON.parse(resp.body)
+          response_data = @format.symbolize(JSON.parse(resp.body))
+          puts response_data.inspect
 
           if response_data['_code'] === 200
             Notify.success("#{server_name} (#{server[:address]}) updated")

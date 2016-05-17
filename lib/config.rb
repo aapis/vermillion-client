@@ -46,11 +46,13 @@ module Vermillion
 
     def config_found?
       file = "#{File.expand_path(Dir.home)}/.vermillion.yml"
+      fmt = Vermillion::Helper.load('formatting')
 
       if File.exists? file
         @@yml = ::YAML.load_file(file)
         # symbolize keys
-        @@yml = @@yml.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+        #@@yml = @@yml.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+        @@yml = fmt.symbolize(@@yml)
       end
 
       !@@yml.nil?
