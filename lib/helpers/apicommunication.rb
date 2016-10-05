@@ -1,7 +1,6 @@
 module Vermillion
   module Helper
     module ApiCommunication
-
       def send_to_one(input, endpoint)
         # setup request values
         server_name = input
@@ -26,19 +25,18 @@ module Vermillion
           endpoint += "/#{other}" if other
           resp = @network.post(http + server[:address] + endpoint, server[:key])
           # puts http + server[:address] + endpoint
-          puts resp.body
+          # puts resp.body
 
           # generic failure for invalid response type
           raise Errno::ECONNREFUSED if resp["Content-Type"] != "application/json"
-
-          # we don't really care why this failed, just that it did
-          raise Errno::ECONNREFUSED if resp.code.to_i > 399
 
           # handle JSON response
           response_data = @format.symbolize(JSON.parse(resp.body))
 
           if response_data[:_code] === 200
-            Notify.success("#{server_name} (#{server[:address]}) updated")
+            Notify.success("#{server_name} (#{server[:address]}) update succeeded")
+          else
+            Notify.warning("#{response_data[:_title]}: #{response_data[:_message]}")
           end
         rescue Errno::ECONNREFUSED => e
           Notify.warning("Request failed for #{server_name} (#{server[:address]})")
@@ -52,7 +50,6 @@ module Vermillion
           send_to_one(server[:name], endpoint) if server[:name]
         end
       end
-
     end
   end
 end
