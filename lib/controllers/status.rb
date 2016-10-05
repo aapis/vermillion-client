@@ -10,7 +10,7 @@ module Vermillion
 
         Notify.info('Sites')
         $config.get(:servers).each do |server|
-          Notify.spit(" - Name: #{server['name']}, Address: #{server['address']}, HTTPS: #{server['https'].to_bool}")
+          Notify.spit(" - Name: #{server[:name]}, Address: #{server[:address]}, HTTPS: #{server[:https].to_bool}")
         end
       end
 
