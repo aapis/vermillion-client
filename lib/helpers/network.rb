@@ -14,11 +14,12 @@ module Vermillion
 
       def _request(url, type = :GET, key)
         url = URI(url)
+        req_path = "#{url.path}?#{url.query}"
 
         if type == :GET
-          req = Net::HTTP::Get.new(url.path)
+          req = Net::HTTP::Get.new(req_path)
         elsif type == :POST
-          req = Net::HTTP::Post.new(url.path)
+          req = Net::HTTP::Post.new(req_path)
         end
 
         req.add_field('X-Vermillion-Key', key)
@@ -33,7 +34,7 @@ module Vermillion
 
         res
       end
-      
+
     end
   end
 end

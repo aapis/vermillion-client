@@ -1,11 +1,12 @@
 module Vermillion
   module Helper
     module ApiCommunication
-      def send_to_one(input, endpoint)
+      def send_to_one(input, endpoint, args = [])
         # setup request values
         server_name = input
         remote_site = nil
         server_name, remote_site, other = input.split('/') if input.include?('/')
+        args_qs = ""
 
         endpoint = "/api/#{endpoint}/"
         server = $config.get(:servers).select { |hash| hash[:name] == server_name }.first
@@ -23,8 +24,17 @@ module Vermillion
         begin
           endpoint += remote_site if remote_site
           endpoint += "/#{other}" if other
-          resp = @network.post(http + server[:address] + endpoint, server[:key])
-          # puts http + server[:address] + endpoint
+
+          # prepare args
+          if args.size > 0
+            args_qs += "?"
+            args.each_pair do |arg, val|
+              args_qs += "#{arg}=#{val}"
+            end
+          end
+
+          resp = @network.post(http + server[:address] + endpoint + args_qs, server[:key])
+          puts http + server[:address] + endpoint + args_qs
           # puts resp.body
 
           # generic failure for invalid response type
@@ -43,11 +53,11 @@ module Vermillion
         end
       end
 
-      def send_to_all(endpoint)
+      def send_to_all(endpoint, args)
         servers = @format.symbolize($config.get(:servers))
 
         $config.get(:servers).each do |server|
-          send_to_one(server[:name], endpoint) if server[:name]
+          send_to_one(server[:name], endpoint, args) if server[:name]
         end
       end
     end
