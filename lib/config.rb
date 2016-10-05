@@ -14,11 +14,6 @@ module Vermillion
 
     def bootstrap!
       begin
-        # configure Notifaction gem
-        Notify.configure do |c|
-          c.plugins = []
-        end
-
         # check if configuration file exists
         if !config_found?
           raise "~/.vermillion.yml not found, this file must be created prior to running"
