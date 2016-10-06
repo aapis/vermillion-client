@@ -9,14 +9,14 @@ module Vermillion
         args_qs = ""
 
         endpoint = "/api/#{endpoint}/"
-        server = $config.get(:servers).select { |hash| hash[:name] == server_name }.first
+        server = @config.get(:servers).select { |hash| hash[:name] == server_name }.first
 
         # warn user if the server is not defined
         return Notify.warning("Server not found: #{server_name}") unless server
         # warn user if the site does not have a secret key property set
         return Notify.warning("The server configuration must contain a key property to send requests") unless server[:key]
         # warn user if the user key is not defined
-        return Notify.warning("The configuration file must contain a user") unless $config.get(:user)
+        return Notify.warning("The configuration file must contain a user") unless @config.get(:user)
 
         http = 'http://'
         http = 'https://' if server[:https]
@@ -34,7 +34,7 @@ module Vermillion
           end
 
           resp = @network.post(http + server[:address] + endpoint + args_qs, server[:key])
-          puts http + server[:address] + endpoint + args_qs
+          # puts http + server[:address] + endpoint + args_qs
           # puts resp.body
 
           # generic failure for invalid response type
@@ -54,9 +54,9 @@ module Vermillion
       end
 
       def send_to_all(endpoint, args)
-        servers = @format.symbolize($config.get(:servers))
+        servers = @format.symbolize(@config.get(:servers))
 
-        $config.get(:servers).each do |server|
+        @config.get(:servers).each do |server|
           send_to_one(server[:name], endpoint, args) if server[:name]
         end
       end

@@ -1,6 +1,8 @@
 module Vermillion
   module Helper
     class Network
+      attr_accessor :config
+
       def get(url, key)
         _request(url, :GET, key)
       end
@@ -24,7 +26,7 @@ module Vermillion
         req.add_field('X-Vermillion-Key', key)
         req.add_field('Accept', 'application/json')
         req.add_field('Cache-Control', 'no-cache')
-        req.add_field('From', $config.get(:user))
+        req.add_field('From', @config.get(:user))
         req.add_field('User-Agent', 'Vermillion Client 1.0')
 
         res = Net::HTTP.new(url.host, url.port).start do |http|

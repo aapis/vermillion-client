@@ -7,10 +7,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "client"
 
 # Modify configuration options here
-$config = Vermillion::Cfg.new
+app = Vermillion::Cfg.new
 # Bootstrap!
-$config.bootstrap!
+app.bootstrap!
 
 # Config file located, route the request
-req = Vermillion::Router.new
+req = Vermillion::Router.new(app)
 req.route

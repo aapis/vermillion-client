@@ -1,17 +1,21 @@
 module Vermillion
   class Router
+    def initialize(config_instance)
+      @config = config_instance
+    end
+
     def pre_exec
       # Populate request params
-      $request = Request.new
+      @request = Request.new
 
       # include the controller
-      if File.exists? "#{Vermillion::CONTROLLER_DIR}#{$request.controller}.rb"
-        require "#{Vermillion::CONTROLLER_DIR}#{$request.controller}.rb"
+      if File.exists? "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
+        require "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
       end
 
       # include helpers
-      if File.exists? "#{Vermillion::HELPER_DIR}#{$request.controller}.rb"
-        require "#{Vermillion::HELPER_DIR}#{$request.controller}.rb"
+      if File.exists? "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
+        require "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
       end
     end
 
@@ -20,21 +24,27 @@ module Vermillion
 
       # Create object context and pass it the required command line arguments
       begin
-        if !$request.controller.nil?
-          controller = Vermillion::Controller.const_get $request.controller.capitalize rescue false
+        if !@request.controller.nil?
+          controller = Vermillion::Controller.const_get @request.controller.capitalize rescue false
 
           if !controller
-            raise "Controller not found: #{$request.controller.capitalize}"
+            raise "Controller not found: #{@request.controller.capitalize}"
           end
 
           context = controller.new
 
-          if context.can_exec? $request.controller, $request.command
+          # bind config instance to the controller to make it available
+          # to all subclasses
+          context.config = @config
+          context.request = @request
+
+
+          if context.can_exec? @request.controller, @request.command
             context.pre_exec
 
-            if context.methods_require_internet.include? $request.command
+            if context.methods_require_internet.include? @request.command
               if !Utils.has_internet_connection?
-                raise RuntimeError, "Command `#{Vermillion::PACKAGE_NAME} #{$request.controller} #{$request.command}` requires a connection to the internet.\nPlease check your network configuration settings."
+                raise RuntimeError, "Command `#{Vermillion::PACKAGE_NAME} #{@request.controller} #{@request.command}` requires a connection to the internet.\nPlease check your network configuration settings."
               end
             end
 

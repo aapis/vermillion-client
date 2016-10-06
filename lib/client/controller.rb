@@ -1,7 +1,7 @@
 module Vermillion
   module Controller
     class Base
-      attr_accessor :model, :helper, :methods_require_internet, :default_method
+      attr_accessor :model, :helper, :methods_require_internet, :default_method, :config, :request
 
       @@options = Hash.new
 
@@ -9,6 +9,7 @@ module Vermillion
       def pre_exec
         @format = Vermillion::Helper.load('formatting')
         @network = Vermillion::Helper.load('network')
+        @network.config = @config
 
         OptionParser.new do |opt|
           opt.banner = "#{Vermillion::PACKAGE_NAME} controller command [...-flags]"
@@ -27,10 +28,10 @@ module Vermillion
 
       # Handle the request
       def exec(args = [])
-        if $request.param.nil?
+        if @request.param.nil?
           self.send(@default_method.to_sym)
         else
-          self.send(@default_method.to_sym, $request.param)
+          self.send(@default_method.to_sym, @request.param)
         end
       end
 
