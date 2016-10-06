@@ -67,50 +67,6 @@ module Vermillion
       def sample
         Notify.warning("Method not implemented");
       end
-
-      def required_modules(*modules)
-        auto_load_required(modules).each do |type, hash|
-          # Make each auto-loaded module available as an instance variable
-          # i.e. [:hound]: @hound_controller, @hound_model, @hound_helper
-          # i.e. [:test]: @test_controller, @test_model, @test_helper
-          # Only files that exist and can be called are loaded
-          hash.each do |key, value|
-            instance_variable_set("@#{key}_#{type}".to_sym, value)
-            @last_model = instance_variable_get("@#{key}_model")
-          end
-        end
-      end
-
-      private
-
-      # autoload and instantiate required libraries, models and helpers
-      def auto_load_required(modules = [])
-        loaded = {:controller => {}, :helper => {}, :model => {}}
-
-        begin
-          modules.each do |mod|
-            if File.exists? "#{Vermillion::INSTALLED_DIR}/lib/controllers/#{mod}.rb"
-              require "#{Vermillion::INSTALLED_DIR}/lib/controllers/#{mod}.rb"
-
-              loaded[:controller][mod] = Vermillion::Controller.const_get(mod.capitalize).new
-            else
-              raise StandardError, "Controller not found: #{mod}"
-            end
-
-            if File.exists? "#{Vermillion::INSTALLED_DIR}/lib/helpers/#{mod}.rb"
-              require "#{Vermillion::INSTALLED_DIR}/lib/helpers/#{mod}.rb"
-              loaded[:helper][mod] = Vermillion::Helper.const_get(mod.capitalize).new
-
-              # auto-instantiate new instance of helper for the new instance of the controller
-              loaded[:controller][mod].helper = loaded[:helper][mod]
-            end
-          end
-
-          loaded
-        rescue StandardError => e
-          Notify.error(e.message, show_time: false)
-        end
-      end
     end
   end
 end
