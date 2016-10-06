@@ -1,7 +1,7 @@
 module Vermillion
   module Controller
     class Base
-      attr_accessor :model, :helper, :methods_require_internet, :default_method, :config, :request
+      attr_accessor :model, :helper, :default_method, :config, :request
 
       @@options = Hash.new
 

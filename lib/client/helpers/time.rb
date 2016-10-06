@@ -17,10 +17,7 @@ module Vermillion
       end
 
       def self.formatted(time = nil)
-        if time.nil?
-          time = ::Time.now
-        end
-        
+        time = ::Time.now if time.nil?
         time.strftime("%e/%-m/%Y @ %I:%M:%S%P")
       end
     end

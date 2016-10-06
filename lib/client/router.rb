@@ -9,14 +9,10 @@ module Vermillion
       @request = Request.new
 
       # include the controller
-      if File.exists? "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
-        require "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
-      end
+      require "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb" if File.exist? "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
 
       # include helpers
-      if File.exists? "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
-        require "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
-      end
+      require "#{Vermillion::HELPER_DIR}#{@request.controller}.rb" if File.exist? "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
     end
 
     def route
@@ -24,12 +20,10 @@ module Vermillion
 
       # Create object context and pass it the required command line arguments
       begin
-        if !@request.controller.nil?
+        unless @request.controller.nil?
           controller = Vermillion::Controller.const_get @request.controller.capitalize rescue false
 
-          if !controller
-            raise "Controller not found: #{@request.controller.capitalize}"
-          end
+          raise "Controller not found: #{@request.controller.capitalize}" unless controller
 
           context = controller.new
 
@@ -38,15 +32,8 @@ module Vermillion
           context.config = @config
           context.request = @request
 
-
           if context.can_exec? @request.controller, @request.command
             context.pre_exec
-
-            if context.methods_require_internet.include? @request.command
-              if !Utils.has_internet_connection?
-                raise RuntimeError, "Command `#{Vermillion::PACKAGE_NAME} #{@request.controller} #{@request.command}` requires a connection to the internet.\nPlease check your network configuration settings."
-              end
-            end
 
             # Run the controller
             # Call a default action for controllers which do not require a third
@@ -62,7 +49,7 @@ module Vermillion
           end
         end
       rescue RuntimeError => e
-        Notify.error("#{e}", show_time: false)
+        Notify.error(e, show_time: false)
       rescue NameError => e
         Notify.error("#{e}\n#{e.backtrace.join("\n")}", show_time: false)
       end
