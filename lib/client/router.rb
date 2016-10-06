@@ -32,7 +32,7 @@ module Vermillion
           context.config = @config
           context.request = @request
 
-          if context.can_exec? @request.controller, @request.command
+          if context.can_exec? controller, @request.command
             context.pre_exec
 
             # Run the controller
