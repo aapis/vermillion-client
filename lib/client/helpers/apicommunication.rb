@@ -7,7 +7,8 @@ module Vermillion
         remote_site = nil
         server_name, remote_site, other = input.split('/') if input.include?('/')
 
-        endpoint = "/api/#{endpoint}/"
+        # endpoint = "/api/#{endpoint}/"
+        endpoint = Endpoint.new("/api/#{endpoint}/")
         server = @config.get(:servers).select { |hash| hash[:name] == server_name }.first
 
         # warn user if the server is not defined
@@ -17,17 +18,18 @@ module Vermillion
         # warn user if the user key is not defined
         return Notify.warning("The configuration file must contain a user") unless @config.get(:user)
 
-        http = 'http://'
-        http = 'https://' if server[:https]
+        endpoint.server = server[:address]
+        endpoint.protocol = server[:https]
 
         begin
-          endpoint += remote_site if remote_site
-          endpoint += "/#{other}" if other
+          endpoint.add(:remote, remote_site) if remote_site
+          endpoint.add(:other, "/#{other}") if other
 
           # prepare args
           args_qs = Utils.to_query_string(args)
+          endpoint.add(:query_string, args_qs)
 
-          resp = @network.post(http + server[:address] + endpoint + args_qs, server[:key])
+          resp = @network.post(endpoint.to_s, server[:key])
           # puts http + server[:address] + endpoint + args_qs
           # puts resp.body
 
