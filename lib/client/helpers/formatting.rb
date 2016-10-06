@@ -6,7 +6,7 @@ module Vermillion
         when Hash
           Hash[
             h.map do |k, v|
-              [ k.respond_to?(:to_sym) ? k.to_sym : k, symbolize(v) ]
+              [k.respond_to?(:to_sym) ? k.to_sym : k, symbolize(v)]
             end
           ]
         when Enumerable

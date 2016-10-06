@@ -13,8 +13,9 @@ module Vermillion
 
       private
 
-      def _request(url, type = :GET, key)
+      def _request(url, type, key)
         url = URI(url)
+        type ||= :GET
         req_path = "#{url.path}?#{url.query}"
 
         if type == :GET

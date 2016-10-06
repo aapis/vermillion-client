@@ -6,7 +6,6 @@ module Vermillion
         server_name = input
         remote_site = nil
         server_name, remote_site, other = input.split('/') if input.include?('/')
-        args_qs = ""
 
         endpoint = "/api/#{endpoint}/"
         server = @config.get(:servers).select { |hash| hash[:name] == server_name }.first
@@ -26,12 +25,7 @@ module Vermillion
           endpoint += "/#{other}" if other
 
           # prepare args
-          if args.size > 0
-            args_qs += "?"
-            args.each_pair do |arg, val|
-              args_qs += "#{arg}=#{val}"
-            end
-          end
+          args_qs = Utils.to_query_string(args)
 
           resp = @network.post(http + server[:address] + endpoint + args_qs, server[:key])
           # puts http + server[:address] + endpoint + args_qs
@@ -43,19 +37,17 @@ module Vermillion
           # handle JSON response
           response_data = @format.symbolize(JSON.parse(resp.body))
 
-          if response_data[:_code] === 200
+          if response_data[:_code] == 200
             Notify.success("#{server_name} (#{server[:address]}) update succeeded")
           else
             Notify.warning("#{response_data[:_title]}: #{response_data[:_message]}")
           end
-        rescue Errno::ECONNREFUSED => e
+        rescue Errno::ECONNREFUSED
           Notify.warning("Request failed for #{server_name} (#{server[:address]})")
         end
       end
 
       def send_to_all(endpoint, args)
-        servers = @format.symbolize(@config.get(:servers))
-
         @config.get(:servers).each do |server|
           send_to_one(server[:name], endpoint, args) if server[:name]
         end
