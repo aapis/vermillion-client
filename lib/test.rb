@@ -4,7 +4,7 @@ require 'test/base'
 module Vermillion
   #
   # @since 0.3.0
-  def self.is_test?
+  def self.test?
     true
   end
 

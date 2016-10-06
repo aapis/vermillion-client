@@ -1,6 +1,5 @@
 module Vermillion
   class Router
-
     def pre_exec
       # Populate request params
       $request = Request.new
@@ -58,6 +57,5 @@ module Vermillion
         Notify.error("#{e.to_s}\n#{e.backtrace.join("\n")}", show_time: false)
       end
     end
-
   end
 end

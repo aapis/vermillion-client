@@ -29,7 +29,7 @@ require "client/helper"
 module Vermillion
   #
   # @since 0.3.0
-  def self.is_test?
+  def self.test?
     false
   end
 end
