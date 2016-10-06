@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description   = 'Deploy, rebuild, rollback git-managed websites'
   s.authors       = ['Ryan Priebe']
   s.email         = 'hello@ryanpriebe.com'
-  s.files         = `git ls-files`.split($\)
+  s.files         = `git ls-files`.split($ORS)
   s.homepage      = 'http://rubygems.org/gems/vermillion-client'
   s.license       = 'MIT'
   s.executables   = 'vermillion'

@@ -1,6 +1,6 @@
 module Vermillion
-  PACKAGE_NAME = 'vermillion-client'
-  INSTALLED_DIR = '/Users/prieber/Work/vermillion-client' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
+  PACKAGE_NAME = 'vermillion-client'.freeze
+  INSTALLED_DIR = '/Users/prieber/Work/vermillion-client'.freeze # Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
   HELPER_DIR = INSTALLED_DIR + "/lib/client/helpers/"
   CONTROLLER_DIR = INSTALLED_DIR + "/lib/client/controllers/"
   MODEL_DIR = INSTALLED_DIR + "/lib/client/models/"
@@ -9,16 +9,17 @@ module Vermillion
 
   class Cfg
     def bootstrap!
-      prepare
+      populate_config
 
-      unless valid_config?
-        require 'client/controllers/firstrun'
+      return if valid_config?
 
-        controller = Vermillion::Controller::Firstrun.new
-        controller.default
+      # no config file found, lets create one using the firstrun controller
+      require 'client/controllers/firstrun'
 
-        prepare
-      end
+      controller = Vermillion::Controller::Firstrun.new
+      controller.default
+
+      populate_config
     end
 
     def constant?(name)
@@ -37,15 +38,14 @@ module Vermillion
       hash
     end
 
-    def prepare
+    def populate_config
       file = File.expand_path("~/.vermillion.yml")
       fmt = Vermillion::Helper.load('formatting')
 
-      if File.exist? file
-        @yml = ::YAML.load_file(file)
-        # symbolize keys
-        @yml = fmt.symbolize(@yml)
-      end
+      return false unless File.exist? file
+
+      @yml = ::YAML.load_file(file)
+      @yml = fmt.symbolize(@yml)
     end
 
     def valid_config?
