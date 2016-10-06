@@ -1,8 +1,6 @@
 module Vermillion
   PACKAGE_NAME = 'vermillion-client'
   INSTALLED_DIR = '/Users/prieber/Work/vermillion-client' #Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
-  LOG_DIR = INSTALLED_DIR + "/logs"
-  DEFAULT_LOG = Vermillion::Log.new # no args means default log
   HELPER_DIR = INSTALLED_DIR + "/lib/client/helpers/"
   CONTROLLER_DIR = INSTALLED_DIR + "/lib/client/controllers/"
   MODEL_DIR = INSTALLED_DIR + "/lib/client/models/"
@@ -40,13 +38,12 @@ module Vermillion
     end
 
     def config_found?
-      file = "#{File.expand_path(Dir.home)}/.vermillion.yml"
+      file = File.expand_path("~/.vermillion.yml")
       fmt = Vermillion::Helper.load('formatting')
 
       if File.exists? file
         @@yml = ::YAML.load_file(file)
         # symbolize keys
-        #@@yml = @@yml.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
         @@yml = fmt.symbolize(@@yml)
       end
 
