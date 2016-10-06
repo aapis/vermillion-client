@@ -8,16 +8,16 @@ module Vermillion
   DEBUG = false
 
   class Cfg
-    @@yml = nil
-
     def bootstrap!
-      begin
-        # check if configuration file exists
-        if !config_found?
-          raise "~/.vermillion.yml not found, this file must be created prior to running"
-        end
-      rescue => e
-        Notify.error("#{e.to_s}", show_time: false)
+      prepare
+
+      unless valid_config?
+        require 'client/controllers/firstrun'
+
+        controller = Vermillion::Controller::Firstrun.new
+        controller.default
+
+        prepare
       end
     end
 
@@ -37,21 +37,23 @@ module Vermillion
       hash
     end
 
-    def config_found?
+    def prepare
       file = File.expand_path("~/.vermillion.yml")
       fmt = Vermillion::Helper.load('formatting')
 
-      if File.exists? file
-        @@yml = ::YAML.load_file(file)
+      if File.exist? file
+        @yml = ::YAML.load_file(file)
         # symbolize keys
-        @@yml = fmt.symbolize(@@yml)
+        @yml = fmt.symbolize(@yml)
       end
+    end
 
-      !@@yml.nil?
+    def valid_config?
+      !@yml.nil?
     end
 
     def get(name)
-      @@yml[name.to_sym]
+      @yml[name.to_sym]
     end
   end
 end

@@ -11,7 +11,9 @@ module Vermillion
       end
 
       # Handle the request
-      def exec(args = [])
+      def exec
+        raise NoMethodError, "Method cannot be nil" unless @method
+
         if @request.param.nil?
           send(@method.to_sym)
         else
@@ -21,7 +23,6 @@ module Vermillion
 
       # Perform post-run cleanup tasks, such as deleting old logs
       def post_exec(total_errors = 0, total_warnings = 0, total_files = 0)
-
       end
 
       # Determines if the command can execute

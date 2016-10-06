@@ -19,6 +19,8 @@ servers:
     address: localhost:8000
     https: false
     key: EDIT_ME
+user:
+  test@example.com
           CONTENTS
         end
       end
