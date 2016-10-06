@@ -10,7 +10,7 @@ module Vermillion
         File.open(Dir.home + '/.vermillion.yml', "w") do |f|
           f.write <<-'CONTENTS'
 servers:
-  - 
+  -
     name: dev
     address: 192.168.0.74
     https: false

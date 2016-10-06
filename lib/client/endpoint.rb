@@ -1,5 +1,7 @@
 module Vermillion
   class Endpoint
+    attr_writer :server
+
     def initialize(initial_path)
       @path = { default: initial_path }
       @server = nil
@@ -8,10 +10,6 @@ module Vermillion
 
     def protocol=(use_https)
       @protocol = 'https://' if use_https
-    end
-
-    def server=(uri)
-      @server = uri
     end
 
     def add(key, value)
