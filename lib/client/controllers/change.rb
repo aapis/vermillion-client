@@ -16,7 +16,7 @@ module Vermillion
       end
 
       def branch(server)
-        send_to_one(server, :change_branch, { to: @to })
+        send_to_one(server, :change_branch, to: @to)
       end
     end
   end
