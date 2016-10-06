@@ -14,7 +14,6 @@ module Vermillion
       def config(server)
         send_to_one(server, :update_config)
       end
-
     end
   end
 end

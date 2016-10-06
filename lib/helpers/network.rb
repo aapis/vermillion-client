@@ -1,7 +1,6 @@
 module Vermillion
   module Helper
     class Network
-
       def get(url, key)
         _request(url, :GET, key)
       end
@@ -34,7 +33,6 @@ module Vermillion
 
         res
       end
-
     end
   end
 end

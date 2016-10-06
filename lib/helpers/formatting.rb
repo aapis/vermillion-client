@@ -1,7 +1,6 @@
 module Vermillion
   module Helper
     class Formatting
-
       def symbolize(h)
         case h
         when Hash
@@ -16,7 +15,6 @@ module Vermillion
           h
         end
       end
-
     end
   end
 end

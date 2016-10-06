@@ -1,7 +1,7 @@
 module Vermillion
   module Helper
     module ApiCommunication
-      def send_to_one(input, endpoint, args = [])
+      def send_to_one(input, endpoint, args = {})
         # setup request values
         server_name = input
         remote_site = nil
