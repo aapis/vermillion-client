@@ -15,7 +15,8 @@ module Vermillion
         super
       end
 
-      def branch(server)
+      def branch(server, to = nil)
+        @to = to || @to
         send_to_one(server, :change_branch, to: @to)
       end
     end

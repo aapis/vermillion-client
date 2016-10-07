@@ -26,8 +26,7 @@ module Vermillion
           endpoint.add(:other, "/#{other}") if other
 
           # prepare args
-          args_qs = Utils.to_query_string(args)
-          endpoint.add(:query_string, args_qs)
+          endpoint.add(:query_string, Utils.to_query_string(args))
 
           resp = @network.post(endpoint.to_s, server[:key])
           # puts http + server[:address] + endpoint + args_qs

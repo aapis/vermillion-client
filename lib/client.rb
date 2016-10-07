@@ -1,3 +1,4 @@
+# include external packages
 require "date"
 require "time"
 require "json"
@@ -12,7 +13,6 @@ require 'mime/types'
 require 'yaml'
 
 # include required files
-require "client/kernel"
 require "client/version"
 require "client/helpers/time"
 require "client/helpers/results"
