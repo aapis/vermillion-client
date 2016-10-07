@@ -21,7 +21,7 @@ module Vermillion
       # Create object context and pass it the required command line arguments
       begin
         unless @request.controller.nil?
-          controller = Vermillion::Controller.const_get @request.controller.capitalize rescue false
+          controller = Vermillion::Controller.const_get @request.controller.capitalize
 
           raise "Controller not found: #{@request.controller.capitalize}" unless controller
 
@@ -48,8 +48,10 @@ module Vermillion
             context.post_exec
           end
         end
+      rescue NoMethodError => e
+        Notify.error(e.message)
       rescue RuntimeError => e
-        Notify.error(e, show_time: false)
+        Notify.error(e.message, show_time: false)
       rescue NameError => e
         Notify.error("#{e}\n#{e.backtrace.join("\n")}", show_time: false)
       end
