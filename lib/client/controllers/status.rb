@@ -4,6 +4,8 @@ module Vermillion
       def default
         print_config
         print_servers
+
+        OK
       end
 
       def config

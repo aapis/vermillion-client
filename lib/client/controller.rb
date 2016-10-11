@@ -3,6 +3,15 @@ module Vermillion
     class Base
       attr_accessor :config, :request
 
+      # Exit code to indicate everything is ok!
+      OK = 0
+      # Exit code to indicate a force quit (exit) call, meaning the program
+      # quit with an error
+      QUIT = 1
+      # Exit code to indicate that the program exited with a non-zero exit code,
+      # but not one that resulted in a force quit
+      QUIT_SOFT = 2
+
       def initialize(config, request)
         @config = config
         @request = request
