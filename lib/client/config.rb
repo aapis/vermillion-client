@@ -8,7 +8,7 @@ module Vermillion
       return if valid_config?
 
       # no config file found, lets create one using the firstrun controller
-      require 'client/controllers/firstrun'
+      require 'client/controller/firstrun'
 
       controller = Vermillion::Controller::Firstrun.new
       controller.default

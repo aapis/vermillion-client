@@ -14,17 +14,17 @@ require "yaml"
 
 # include required files
 require "client/version"
-require "client/helpers/time"
-require "client/helpers/results"
+require "client/helper/time"
+require "client/helper/results"
 require "client/config"
 require "client/request"
 require "client/utils"
 require "client/controller"
 require "client/router"
-require "client/endpoint"
-require "client/helpers/formatting"
-require "client/helpers/apicommunication"
-require "client/helpers/network"
+require "client/helper/endpoint"
+require "client/helper/formatting"
+require "client/helper/apicommunication"
+require "client/helper/network"
 require "client/helper"
 
 module Vermillion
