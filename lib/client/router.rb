@@ -27,8 +27,8 @@ module Vermillion
 
           context = controller.new
 
-          # bind config instance to the controller to make it available
-          # to all subclasses
+          # bind some object instances to the controller so they are available
+          # later (such as, in the requested controller!)
           context.config = @config
           context.request = @request
 
