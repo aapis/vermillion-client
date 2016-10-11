@@ -28,6 +28,8 @@ require "client/helpers/network"
 require "client/helper"
 
 module Vermillion
+  PACKAGE_NAME = 'vermillion-client'.freeze
+
   #
   # @since 0.3.0
   def self.test?

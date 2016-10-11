@@ -1,5 +1,4 @@
 module Vermillion
-  PACKAGE_NAME = 'vermillion-client'.freeze
   DEBUG = false
 
   class Cfg
@@ -39,8 +38,8 @@ module Vermillion
 
       return false unless File.exist? file
 
-      @yml = ::YAML.load_file(file)
-      @yml = fmt.symbolize(@yml)
+      config_contents = ::YAML.load_file(file)
+      @yml = fmt.symbolize(config_contents)
     end
 
     def valid_config?
