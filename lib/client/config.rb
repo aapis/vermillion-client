@@ -21,14 +21,10 @@ module Vermillion
     end
 
     def options
-      keys = Vermillion.constants.select do |name|
-        constant? name
-      end
-
+      keys = Vermillion.constants.select { |name| constant?(name) }
       hash = {}
-      keys.each do |key|
-        hash[key] = Vermillion.const_get(key)
-      end
+
+      keys.each { |key| hash[key] = Vermillion.const_get(key) }
       hash
     end
 
@@ -38,16 +34,17 @@ module Vermillion
 
       return false unless File.exist? file
 
-      config_contents = ::YAML.load_file(file)
-      @yml = fmt.symbolize(config_contents)
-    end
-
-    def valid_config?
-      !@yml.nil?
+      @yml = fmt.symbolize(::YAML.load_file(file))
     end
 
     def get(name)
       @yml[name.to_sym]
+    end
+
+    private
+
+    def valid_config?
+      !@yml.nil?
     end
   end
 end
