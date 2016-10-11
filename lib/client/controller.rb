@@ -28,11 +28,11 @@ module Vermillion
       # Determines if the command can execute
       def can_exec?(command)
         # no command was passed, check if controller has a default method
-        if command.nil? && self.respond_to?(:default)
+        if command.nil? && respond_to?(:default)
           @method = :default
-        else
+        elsif respond_to? command
           # check the controller for the requested method
-          @method = command if self.respond_to? command
+          @method = command
         end
       end
 
