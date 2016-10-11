@@ -47,3 +47,9 @@ Prints information about `vermillion`, including the app's configuration data an
 Quite simply, executes `git-pull` in the requested project.
 
 `vermillion update one local/domain1`
+
+### create
+
+Create a new directory on the server.
+
+`vermillion create one local/domain4`

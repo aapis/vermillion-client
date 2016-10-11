@@ -13,7 +13,7 @@ module Vermillion
         super
       end
 
-      def default(server, name = nil)
+      def one(server, name = nil)
         @name = name || @name
         send_to_one(server, :create, name: @name)
       end
