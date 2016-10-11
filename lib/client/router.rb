@@ -10,9 +10,9 @@ module Vermillion
 
       begin
         # include the controller
-        require "client/controllers/#{@request.controller}"
+        require "client/controller/#{@request.controller}"
         # include helpers
-        require "client/helpers/#{@request.controller}" if File.exist? "client/helpers/#{@request.controller}"
+        require "client/helper/#{@request.controller}" if File.exist? "client/helpers/#{@request.controller}"
       rescue LoadError
         Notify.error("Controller not found: #{@request.controller}")
       end

@@ -1,5 +1,5 @@
 require "test"
-require "client/controllers/change"
+require "client/controller/change"
 
 class ChangeBranchTest < Vermillion::Test::Base
   def test_change_branch_one

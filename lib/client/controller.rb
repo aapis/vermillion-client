@@ -28,8 +28,6 @@ module Vermillion
 
       # Handle the request
       def exec
-        raise NoMethodError, "Method cannot be nil" unless @method
-
         if @request.param.nil?
           send(@method.to_sym)
         else
@@ -49,6 +47,8 @@ module Vermillion
         elsif respond_to? command
           # check the controller for the requested method
           @method = command
+        else
+          raise NoMethodError, "Invalid method: #{command}"
         end
       end
 
