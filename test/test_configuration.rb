@@ -1,5 +1,5 @@
 require "test"
-require "client/controllers/status"
+require "client/controller/status"
 
 class ConfigurationTest < Vermillion::Test::Base
   def test_config_exist

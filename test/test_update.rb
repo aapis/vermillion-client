@@ -1,5 +1,5 @@
 require "test"
-require "client/controllers/update"
+require "client/controller/update"
 
 class UpdateTest < Vermillion::Test::Base
   def test_update_one

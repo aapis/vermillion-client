@@ -1,5 +1,5 @@
 require "test"
-require "client/controllers/create"
+require "client/controller/create"
 
 class CreateTest < Vermillion::Test::Base
   def test_default
