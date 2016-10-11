@@ -2,16 +2,12 @@ require "test"
 require "client/controllers/change"
 
 class ChangeBranchTest < Vermillion::Test::Base
-  MockRequest = Struct.new(:controller, :command)
-
   def test_change_branch_one
     req = MockRequest.new(:change, :branch)
-
-    cfg = Vermillion::Cfg.new
-    cfg.bootstrap!
+    cfg = Vermillion::Cfg.new.populate_config
 
     change = Vermillion::Controller::Change.new(cfg, req)
 
-    assert change.branch(:local, :master)
+    assert change.branch(:local, :master).zero?
   end
 end

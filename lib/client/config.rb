@@ -35,6 +35,7 @@ module Vermillion
       return false unless File.exist? file
 
       @yml = fmt.symbolize(::YAML.load_file(file))
+      self
     end
 
     def get(name)
