@@ -3,7 +3,9 @@ require 'minitest/autorun'
 module Vermillion
   module Test
     class Base < Minitest::Test
-      MockRequest = Struct.new(:controller, :command)
+      include Vermillion::Controller
+
+      MockRequest = Struct.new(:controller, :command, :param)
 
       def setup
         Notify.spit "Executing Tests (#{Time.now})"

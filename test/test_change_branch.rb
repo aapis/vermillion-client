@@ -6,7 +6,7 @@ class ChangeBranchTest < Vermillion::Test::Base
     req = MockRequest.new(:change, :branch)
     cfg = Vermillion::Cfg.new.populate_config
 
-    change = Vermillion::Controller::Change.new(cfg, req)
+    change = Change.new(cfg, req)
 
     assert change.branch(:local, :master).zero?
   end

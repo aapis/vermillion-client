@@ -8,11 +8,11 @@ class ConfigurationTest < Vermillion::Test::Base
     assert File.exist? path
   end
 
-  def test_run_default
+  def test_default
     req = MockRequest.new(:status, :default)
     cfg = Vermillion::Cfg.new.populate_config
 
-    status = Vermillion::Controller::Status.new(cfg, req)
+    status = Status.new(cfg, req)
 
     assert status.default.zero?
   end
