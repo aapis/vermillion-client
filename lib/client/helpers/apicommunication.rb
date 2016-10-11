@@ -5,12 +5,10 @@ module Vermillion
         # setup request values
         server_name = input
         remote_site = nil
-        server_name, remote_site, other = input.split('/') if input.include?('/')
+        server_name, remote_site, other = input.split('/') if input.to_s.include?('/')
 
-        # endpoint = "/api/#{endpoint}/"
         endpoint = Endpoint.new("/api/#{endpoint}/")
-        server = @config.get(:servers).select { |hash| hash[:name] == server_name }.first
-
+        server = @config.get(:servers).select { |hash| hash[:name].to_sym == server_name.to_sym }.first
         # warn user if the server is not defined
         return Notify.warning("Server not found: #{server_name}") unless server
         # warn user if the site does not have a secret key property set
@@ -24,8 +22,6 @@ module Vermillion
         begin
           endpoint.add(:remote, remote_site) if remote_site
           endpoint.add(:other, "/#{other}") if other
-
-          # prepare args
           endpoint.add(:query_string, Utils.to_query_string(args))
 
           resp = @network.post(endpoint.to_s, server[:key])

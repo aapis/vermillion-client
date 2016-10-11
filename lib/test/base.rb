@@ -4,7 +4,7 @@ module Vermillion
   module Test
     class Base < Minitest::Test
       def setup
-        Notify.spit "Executing Tests"
+        Notify.spit "Executing Tests (#{Time.now})"
       end
     end
   end

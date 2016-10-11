@@ -3,6 +3,13 @@ module Vermillion
     class Base
       attr_accessor :config, :request
 
+      def initialize(config, request)
+        @config = config
+        @request = request
+
+        pre_exec
+      end
+
       # Perform pre-run tasks
       def pre_exec
         @format = Vermillion::Helper.load('formatting')
@@ -22,7 +29,7 @@ module Vermillion
       end
 
       # Perform post-run cleanup tasks, such as deleting old logs
-      def post_exec(total_errors = 0, total_warnings = 0, total_files = 0)
+      def post_exec
       end
 
       # Determines if the command can execute

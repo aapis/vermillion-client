@@ -27,12 +27,7 @@ module Vermillion
           controller = Vermillion::Controller.const_get @request.controller.capitalize
 
           # create an instance of the requested controller
-          context = controller.new
-
-          # bind some object instances to the controller so they are available
-          # later (such as, in the requested controller!)
-          context.config = @config
-          context.request = @request
+          context = controller.new(@config, @request)
 
           if context.can_exec? @request.command
             # Set things up

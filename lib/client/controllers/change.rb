@@ -7,9 +7,7 @@ module Vermillion
         OptionParser.new do |opt|
           opt.banner = "#{Vermillion::PACKAGE_NAME} change [...-flags]"
 
-          opt.on("-t", "--to=TO", "Branch to change to") do |v|
-            @to = v
-          end
+          opt.on("-t", "--to=TO", "Branch to change to") { |o| @to = o }
         end.parse!
 
         super
