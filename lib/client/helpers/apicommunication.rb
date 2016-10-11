@@ -37,7 +37,12 @@ module Vermillion
           if response_data[:_code] == 200
             Notify.success("#{server_name} (#{server[:address]}) update succeeded")
           else
-            Notify.warning("#{response_data[:_title]}: #{response_data[:_message]}")
+            # work around a messaging issue with vermillion-server
+            if response_data[:message]
+              Notify.warning("Error: #{response_data[:message]}")
+            else
+              Notify.warning("#{response_data[:_title]}: #{response_data[:_message]}")
+            end
           end
         rescue Errno::ECONNREFUSED
           Notify.warning("Request failed for #{server_name} (#{server[:address]})")
