@@ -18,6 +18,7 @@ module Vermillion
 
       def print_config
         Notify.info("Configuration values")
+
         @config.options.each_pair do |key, value|
           Notify.spit " - #{key}: #{value}"
         end
@@ -25,8 +26,9 @@ module Vermillion
 
       def print_servers
         Notify.info('Sites')
+
         @config.get(:servers).each do |server|
-          Notify.spit(" - Name: #{server[:name]}, Address: #{server[:address]}, HTTPS: #{server[:https].to_bool}")
+          Notify.spit(" - Name: #{server[:name]}, Address: #{server[:address]}, HTTPS: #{server[:https]}")
         end
       end
     end

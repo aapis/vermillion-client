@@ -32,17 +32,12 @@ module Vermillion
           context.config = @config
           context.request = @request
 
-          if context.can_exec? controller, @request.command
+          if context.can_exec? @request.command
+            # Set things up
             context.pre_exec
 
-            # Run the controller
-            # Call a default action for controllers which do not require a third
-            # argument, i.e. COMMAND status
-            if context.respond_to? :default
-              context.default
-            else
-              context.exec
-            end
+            # Run the requested action
+            context.exec
 
             # Run cleanup commands
             context.post_exec

@@ -26,10 +26,14 @@ module Vermillion
       end
 
       # Determines if the command can execute
-      def can_exec?(controller, command)
-        # respond_to claims known commands do not exist, so lets do this
-        # instead
-        @method = command if controller.instance_methods.include?(command)
+      def can_exec?(command)
+        # no command was passed, check if controller has a default method
+        if command.nil? && self.respond_to?(:default)
+          @method = :default
+        else
+          # check the controller for the requested method
+          @method = command if self.respond_to? command
+        end
       end
 
       # default method called by exec if no argument is passed
