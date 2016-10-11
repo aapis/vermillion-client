@@ -1,10 +1,5 @@
 module Vermillion
   PACKAGE_NAME = 'vermillion-client'.freeze
-  INSTALLED_DIR = '/Users/prieber/Work/vermillion-client'.freeze # Gem::Specification.find_by_name(Vermillion::PACKAGE_NAME).gem_dir
-  HELPER_DIR = INSTALLED_DIR + "/lib/client/helpers/"
-  CONTROLLER_DIR = INSTALLED_DIR + "/lib/client/controllers/"
-  MODEL_DIR = INSTALLED_DIR + "/lib/client/models/"
-  TEMPLATE_DIR = INSTALLED_DIR + "/lib/client/configs/templates/"
   DEBUG = false
 
   class Cfg

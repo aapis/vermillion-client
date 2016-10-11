@@ -3,7 +3,6 @@ module Vermillion
     attr_reader :controller, :command, :custom, :flags, :raw_flags, :param
 
     def initialize
-      # TODO: rewrite with optparse
       @controller = nil
       @flags = ARGV.select { |f| f.start_with?('-') }.map { |f| f.split("=").map(&:to_sym) } || []
       @raw_flags = ARGV.select { |f| f.start_with?('-') } || []

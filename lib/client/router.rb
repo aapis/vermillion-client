@@ -8,11 +8,14 @@ module Vermillion
       # Populate request params
       @request = Request.new
 
-      # include the controller
-      require "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb" if File.exist? "#{Vermillion::CONTROLLER_DIR}#{@request.controller}.rb"
-
-      # include helpers
-      require "#{Vermillion::HELPER_DIR}#{@request.controller}.rb" if File.exist? "#{Vermillion::HELPER_DIR}#{@request.controller}.rb"
+      begin
+        # include the controller
+        require "client/controllers/#{@request.controller}"
+        # include helpers
+        require "client/helpers/#{@request.controller}" if File.exist? "client/helpers/#{@request.controller}"
+      rescue LoadError
+        Notify.error("Controller not found: #{@request.controller}")
+      end
     end
 
     def route
@@ -23,8 +26,7 @@ module Vermillion
         unless @request.controller.nil?
           controller = Vermillion::Controller.const_get @request.controller.capitalize
 
-          raise "Controller not found: #{@request.controller.capitalize}" unless controller
-
+          # create an instance of the requested controller
           context = controller.new
 
           # bind some object instances to the controller so they are available

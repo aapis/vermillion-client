@@ -9,8 +9,8 @@ require "uri"
 require "fileutils"
 require "cgi"
 require "notifaction"
-require 'mime/types'
-require 'yaml'
+require "mime/types"
+require "yaml"
 
 # include required files
 require "client/version"
