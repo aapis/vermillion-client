@@ -9,6 +9,6 @@ class CreateTest < Vermillion::Test::Base
 
     create = Create.new(cfg, req)
 
-    assert create.default(:local, req.param).zero?
+    assert create.one(:local, req.param).zero?
   end
 end
