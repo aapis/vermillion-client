@@ -1,6 +1,7 @@
 module Vermillion
   module Controller
     class Status < Controller::Base
+      # Prints both configuration and server information, returns status code 0
       def default
         print_config
         print_servers
@@ -8,16 +9,19 @@ module Vermillion
         OK
       end
 
+      # Print configuration information
       def config
         print_config
       end
 
+      # Print configured server information
       def servers
         print_servers
       end
 
       private
 
+      # Process and print config values
       def print_config
         Notify.info("Configuration values")
 
@@ -26,6 +30,7 @@ module Vermillion
         end
       end
 
+      # Process and print server values
       def print_servers
         Notify.info('Sites')
 

@@ -1,6 +1,7 @@
 module Vermillion
   module Controller
     class Firstrun < Controller::Base
+      # Create the configuration file if it does not exist
       def default
         if File.exist?(Dir.home + '/.vermillion.yml')
           Notify.error("Configuration already exists, this is not the first run!  Exiting.", show_time: false)

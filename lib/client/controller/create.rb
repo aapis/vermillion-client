@@ -3,6 +3,7 @@ module Vermillion
     class Create < Controller::Base
       include Helper::ApiCommunication
 
+      # Prepare to execute the requested method
       def pre_exec
         OptionParser.new do |opt|
           opt.banner = "#{Vermillion::PACKAGE_NAME} change [...-flags]"

@@ -1,6 +1,9 @@
 module Vermillion
   module Helper
     class Formatting
+      # Recursively symbolize keys in a hash
+      # Params:
+      # +h+:: The hash you want to symbolize
       def symbolize(h)
         case h
         when Hash
