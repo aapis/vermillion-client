@@ -197,7 +197,7 @@
 
         <div class="method-description">
         
-        
+        <p>Internal array to hold all the result values</p>
         
         </div>
       </div>
@@ -230,7 +230,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 7</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@bucket</span> = []
   <span class="ruby-ivar">@bucket</span>
@@ -274,7 +274,7 @@
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 15</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">result</span>)
   <span class="ruby-ivar">@bucket</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">result</span>)
   <span class="ruby-identifier">result</span>
@@ -312,7 +312,7 @@
 
           
           <div class="method-source-code" id="should_eval_to-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">should_eval_to</span>(<span class="ruby-identifier">pass_value</span>)
   <span class="ruby-ivar">@bucket</span>.<span class="ruby-identifier">all?</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pass_value</span>
 <span class="ruby-keyword">end</span></pre>

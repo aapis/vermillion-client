@@ -1,6 +1,7 @@
 module Vermillion
   module Helper
     class Results
+      # Internal array to hold all the result values
       attr_reader :bucket
 
       # Create the Results object
