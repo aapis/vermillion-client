@@ -224,13 +224,13 @@
 
         <div class="method-description">
           
-          
+          <p>Create the <a href="Results.html">Results</a> object</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 5</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@bucket</span> = []
   <span class="ruby-ivar">@bucket</span>
@@ -264,16 +264,20 @@
 
         <div class="method-description">
           
-          <p>Add a result for processing</p>
+          <p>Add a result for processing Params:</p>
+<dl class="rdoc-list note-list"><dt><code>result</code>
+<dd>
+<p>The value you want to store</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 11</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">result</span>)
-  <span class="ruby-ivar">@bucket</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_bool</span>)
-  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_bool</span>
+  <span class="ruby-ivar">@bucket</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-identifier">result</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- add-source -->
           
@@ -298,13 +302,17 @@
 
         <div class="method-description">
           
-          
+          <p>Check if all values match a specified value Params:</p>
+<dl class="rdoc-list note-list"><dt><code>pass_value</code>
+<dd>
+<p>What all values in the array should evaluate to</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="should_eval_to-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/results.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">should_eval_to</span>(<span class="ruby-identifier">pass_value</span>)
   <span class="ruby-ivar">@bucket</span>.<span class="ruby-identifier">all?</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">pass_value</span>
 <span class="ruby-keyword">end</span></pre>

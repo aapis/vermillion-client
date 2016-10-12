@@ -3,16 +3,29 @@ module Vermillion
     class Network
       attr_accessor :config
 
+      # Perform a GET request to a specified URL
+      # Params:
+      # +url+:: The URL you want to hit
+      # +key+:: The authentication key to pass via headers to the URL
       def get(url, key)
         _request(url, :GET, key)
       end
 
+      # Perform a POST request to a specified URL
+      # Params:
+      # +url+:: The URL you want to hit
+      # +key+:: The authentication key to pass via headers to the URL
       def post(url, key)
         _request(url, :POST, key)
       end
 
       private
 
+      # Create and send the HTTP request
+      # Params:
+      # +url+:: The URL you want to hit
+      # +type+:: The HTTP method to send
+      # +key+:: The authentication key to pass via headers to the URL
       def _request(url, type, key)
         url = URI(url)
         type ||= :GET

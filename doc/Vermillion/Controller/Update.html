@@ -216,13 +216,13 @@
 
         <div class="method-description">
           
-          
+          <p><a href="Update.html">Update</a> all sites in the manifest</p>
           
           
 
           
           <div class="method-source-code" id="all-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">all</span>
   <span class="ruby-identifier">send_to_all</span>(<span class="ruby-value">:update</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -249,13 +249,18 @@
 
         <div class="method-description">
           
-          
+          <p><a href="Update.html">Update</a> the configuration manifest for one server
+Params:</p>
+<dl class="rdoc-list note-list"><dt><code>server</code>
+<dd>
+<p>Symbol representing the server you want to update</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="config-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">config</span>(<span class="ruby-identifier">server</span>)
   <span class="ruby-identifier">send_to_one</span>(<span class="ruby-identifier">server</span>, <span class="ruby-value">:update_config</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -282,13 +287,17 @@
 
         <div class="method-description">
           
-          
+          <p><a href="Update.html">Update</a> just one server Params:</p>
+<dl class="rdoc-list note-list"><dt><code>server</code>
+<dd>
+<p>Symbol representing the server you want to update</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="one-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/update.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">one</span>(<span class="ruby-identifier">server</span>)
   <span class="ruby-identifier">send_to_one</span>(<span class="ruby-identifier">server</span>, <span class="ruby-value">:update</span>)
 <span class="ruby-keyword">end</span></pre>

@@ -202,13 +202,18 @@
 
         <div class="method-description">
           
-          
+          <p>Use the following format for a given timestamp: “d/m/y @ H:M:S AM/PM”
+Params:</p>
+<dl class="rdoc-list note-list"><dt><code>time</code>
+<dd>
+<p>Optional time value, uses the current time if not provided, to format</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="formatted-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/time.rb, line 19</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/time.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">formatted</span>(<span class="ruby-identifier">time</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-identifier">time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">time</span>.<span class="ruby-identifier">nil?</span>
   <span class="ruby-identifier">time</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-string">&quot;%e/%-m/%Y @ %I:%M:%S%P&quot;</span>)
@@ -236,13 +241,21 @@
 
         <div class="method-description">
           
-          
+          <p>Human readable strings to represent the length between two time objects
+Params:</p>
+<dl class="rdoc-list note-list"><dt><code>start</code>
+<dd>
+<p>Start time object</p>
+</dd><dt><code>finish</code>
+<dd>
+<p>End time object</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="human_readable-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/time.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/time.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">human_readable</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">finish</span>)
   <span class="ruby-identifier">seconds</span> = <span class="ruby-identifier">finish</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>.<span class="ruby-identifier">to_f</span>
 

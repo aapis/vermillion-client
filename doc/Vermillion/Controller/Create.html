@@ -220,7 +220,7 @@
 
           
           <div class="method-source-code" id="one-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/create.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/create.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">one</span>(<span class="ruby-identifier">server</span>, <span class="ruby-identifier">name</span> = <span class="ruby-keyword">nil</span>)
   <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@name</span>
   <span class="ruby-identifier">send_to_one</span>(<span class="ruby-identifier">server</span>, <span class="ruby-value">:create</span>, <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@name</span>)
@@ -248,7 +248,7 @@
 
         <div class="method-description">
           
-          
+          <p>Prepare to execute the requested method</p>
           
           
             <div class="method-calls-super">
@@ -259,7 +259,7 @@
 
           
           <div class="method-source-code" id="pre_exec-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/create.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/create.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_exec</span>
   <span class="ruby-constant">OptionParser</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opt</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">opt</span>.<span class="ruby-identifier">banner</span> = <span class="ruby-node">&quot;#{Vermillion::PACKAGE_NAME} change [...-flags]&quot;</span>

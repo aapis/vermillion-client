@@ -187,7 +187,7 @@
         
         <div class="method-heading">
           <span class="method-name">send_to_all</span><span
-            class="method-args">(endpoint, args)</span>
+            class="method-args">(endpoint, args = {})</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -196,14 +196,21 @@
 
         <div class="method-description">
           
-          
+          <p>Send HTTP requests to all servers in the local manifest Params:</p>
+<dl class="rdoc-list note-list"><dt><code>endpoint</code>
+<dd>
+<p>The REST endpoint you&#39;d like to send a request to</p>
+</dd><dt><code>args</code>
+<dd>
+<p>Any specific configuration data to send along with the request</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="send_to_all-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/apicommunication.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_all</span>(<span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">args</span>)
+            <pre><span class="ruby-comment"># File lib/client/helper/apicommunication.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_all</span>(<span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">args</span> = {})
   <span class="ruby-ivar">@config</span>.<span class="ruby-identifier">get</span>(<span class="ruby-value">:servers</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">send_to_one</span>(<span class="ruby-identifier">server</span>[<span class="ruby-value">:name</span>], <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">args</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">server</span>[<span class="ruby-value">:name</span>]
   <span class="ruby-keyword">end</span>
@@ -231,15 +238,24 @@
 
         <div class="method-description">
           
-          
+          <p>Send an HTTP request to one server Params:</p>
+<dl class="rdoc-list note-list"><dt><code>input</code>
+<dd>
+<p>The server you want to connect to</p>
+</dd><dt><code>endpoint</code>
+<dd>
+<p>The REST endpoint you&#39;d like to send a request to</p>
+</dd><dt><code>args</code>
+<dd>
+<p>Any specific configuration data to send along with the request</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="send_to_one-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/apicommunication.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/apicommunication.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">send_to_one</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">args</span> = {})
-  <span class="ruby-comment"># setup request values</span>
   <span class="ruby-identifier">server</span>, <span class="ruby-identifier">endpoint</span> = <span class="ruby-identifier">setup</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">endpoint</span>, <span class="ruby-identifier">args</span>)
 
   <span class="ruby-keyword">begin</span>

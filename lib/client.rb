@@ -28,10 +28,10 @@ require "client/helper/network"
 require "client/helper"
 
 module Vermillion
+  # Name of the package
   PACKAGE_NAME = 'vermillion-client'.freeze
 
-  #
-  # @since 0.3.0
+  # Flag to determine if module is running in test mode
   def self.test?
     false
   end

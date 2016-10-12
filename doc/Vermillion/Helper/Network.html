@@ -222,13 +222,20 @@
 
         <div class="method-description">
           
-          
+          <p>Perform a GET request to a specified URL Params:</p>
+<dl class="rdoc-list note-list"><dt><code>url</code>
+<dd>
+<p>The URL you want to hit</p>
+</dd><dt><code>key</code>
+<dd>
+<p>The authentication key to pass via headers to the URL</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/network.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/network.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">key</span>)
   <span class="ruby-identifier">_request</span>(<span class="ruby-identifier">url</span>, <span class="ruby-value">:GET</span>, <span class="ruby-identifier">key</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -255,13 +262,20 @@
 
         <div class="method-description">
           
-          
+          <p>Perform a POST request to a specified URL Params:</p>
+<dl class="rdoc-list note-list"><dt><code>url</code>
+<dd>
+<p>The URL you want to hit</p>
+</dd><dt><code>key</code>
+<dd>
+<p>The authentication key to pass via headers to the URL</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="post-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/network.rb, line 10</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/network.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">post</span>(<span class="ruby-identifier">url</span>, <span class="ruby-identifier">key</span>)
   <span class="ruby-identifier">_request</span>(<span class="ruby-identifier">url</span>, <span class="ruby-value">:POST</span>, <span class="ruby-identifier">key</span>)
 <span class="ruby-keyword">end</span></pre>

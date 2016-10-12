@@ -232,13 +232,18 @@
 
         <div class="method-description">
           
-          
+          <p>Creates the <a href="Endpoint.html">Endpoint</a> object with default values
+for internal variables Params:</p>
+<dl class="rdoc-list note-list"><dt><code>initial_path</code>
+<dd>
+<p>Starting point of the URL this class will build</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">initial_path</span>)
   <span class="ruby-ivar">@path</span> = { <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-identifier">initial_path</span> }
   <span class="ruby-ivar">@server</span> = <span class="ruby-keyword">nil</span>
@@ -273,13 +278,20 @@
 
         <div class="method-description">
           
-          
+          <p>Add a section to the path Params:</p>
+<dl class="rdoc-list note-list"><dt><code>key</code>
+<dd>
+<p>Symbol, the key to identify the section</p>
+</dd><dt><code>value</code>
+<dd>
+<p>Any value to store with the associated key</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="add-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
   <span class="ruby-ivar">@path</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
 <span class="ruby-keyword">end</span></pre>
@@ -306,13 +318,17 @@
 
         <div class="method-description">
           
-          
+          <p>Deletes a value from the internal hash based on a key Params:</p>
+<dl class="rdoc-list note-list"><dt><code>key</code>
+<dd>
+<p>Symbol, the key to identify the section</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="delete-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 24</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -339,13 +355,17 @@
 
         <div class="method-description">
           
-          
+          <p>Checks whether a key exists Params:</p>
+<dl class="rdoc-list note-list"><dt><code>key</code>
+<dd>
+<p>Symbol, the key to identify the section</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="exists-3F-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 28</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">key</span>
 <span class="ruby-keyword">end</span></pre>
@@ -372,13 +392,17 @@
 
         <div class="method-description">
           
-          
+          <p>Return a value based on the provided key Params:</p>
+<dl class="rdoc-list note-list"><dt><code>key</code>
+<dd>
+<p>Symbol, the key to identify the section</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 20</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-ivar">@path</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -405,13 +429,17 @@
 
         <div class="method-description">
           
-          
+          <p>Set endpoint protocol Params:</p>
+<dl class="rdoc-list note-list"><dt><code>use_https</code>
+<dd>
+<p>Boolean value for whether to use HTTPS</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="protocol-3D-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">protocol=</span>(<span class="ruby-identifier">use_https</span>)
   <span class="ruby-ivar">@protocol</span> = <span class="ruby-string">&#39;https://&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">use_https</span>
 <span class="ruby-keyword">end</span></pre>
@@ -438,13 +466,14 @@
 
         <div class="method-description">
           
-          
+          <p>Override the <a href="Endpoint.html#method-i-to_s">#to_s</a> method to
+return an endpoint fragment</p>
           
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 32</span>
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@protocol</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@server</span>
   <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_k</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>

@@ -200,13 +200,14 @@
 
         <div class="method-description">
           
-          
+          <p><a href="Create.html">Create</a> the configuration file if it does not
+exist</p>
           
           
 
           
           <div class="method-source-code" id="default-source">
-            <pre><span class="ruby-comment"># File lib/client/controller/firstrun.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/client/controller/firstrun.rb, line 5</span>
       <span class="ruby-keyword">def</span> <span class="ruby-identifier">default</span>
         <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;/.vermillion.yml&#39;</span>)
           <span class="ruby-constant">Notify</span>.<span class="ruby-identifier">error</span>(<span class="ruby-string">&quot;Configuration already exists, this is not the first run!  Exiting.&quot;</span>, <span class="ruby-identifier">show_time</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
