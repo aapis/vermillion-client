@@ -1,11 +1,12 @@
 module Vermillion
   class Router
+    # Create the router object
     def initialize(config_instance)
       @config = config_instance
     end
 
+    # Prepare for routing
     def pre_exec
-      # Populate request params
       @request = Request.new
 
       begin
@@ -18,6 +19,7 @@ module Vermillion
       end
     end
 
+    # Perform command routing
     def route
       pre_exec
 

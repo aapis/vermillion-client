@@ -1,7 +1,9 @@
 module Vermillion
+  # Flag for enabling more verbose output from certain methods
   DEBUG = false
 
   class Cfg
+    # Perform first run tasks and create or read config file values
     def bootstrap!
       populate_config
 
@@ -16,10 +18,7 @@ module Vermillion
       populate_config
     end
 
-    def constant?(name)
-      name == name.upcase
-    end
-
+    # Returns a hash of all module constants and their values
     def options
       keys = Vermillion.constants.select { |name| constant?(name) }
       hash = {}
@@ -28,24 +27,32 @@ module Vermillion
       hash
     end
 
+    # Populates the internal hash which stores any values set in the config file
     def populate_config
       file = File.expand_path("~/.vermillion.yml")
       fmt = Vermillion::Helper.load('formatting')
-
-      return false unless File.exist? file
 
       @yml = fmt.symbolize(::YAML.load_file(file))
       self
     end
 
+    # Get a specific value from the config file data
+    # Params:
+    # +name+:: String/symbol key value
     def get(name)
       @yml[name.to_sym]
     end
 
     private
 
+    # Check if configuration data exists
     def valid_config?
       !@yml.nil?
+    end
+
+    # Checks if string is a constant
+    def constant?(name)
+      name == name.upcase
     end
   end
 end

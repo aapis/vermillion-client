@@ -12,6 +12,11 @@ module Vermillion
       # but not one that resulted in a force quit
       QUIT_SOFT = 2
 
+      # Setup internal variables that will be used in subclasses
+      # Params:
+      # +config+:: Instance of Vermillion::Cfg to enable access to config file
+      # +request+:: Instance of Vermillion::Request, enables access to request
+      #             parameters
       def initialize(config, request)
         @config = config
         @request = request
@@ -40,6 +45,8 @@ module Vermillion
       end
 
       # Determines if the command can execute
+      # Params:
+      # +command+:: Symbol containing the command we want to execute
       def can_exec?(command)
         # no command was passed, check if controller has a default method
         if command.nil? && respond_to?(:default)
@@ -52,7 +59,7 @@ module Vermillion
         end
       end
 
-      # default method called by exec if no argument is passed
+      # Default method called by exec if no argument is passed
       def sample
         Notify.warning("Method not implemented")
       end
