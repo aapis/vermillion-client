@@ -75,8 +75,6 @@
     
     <li ><a href="#method-i-bootstrap-21">#bootstrap!</a>
     
-    <li ><a href="#method-i-constant-3F">#constant?</a>
-    
     <li ><a href="#method-i-get">#get</a>
     
     <li ><a href="#method-i-options">#options</a>
@@ -103,90 +101,6 @@
     <li class="file"><a href="../Rakefile.html">Rakefile</a>
   
     <li class="file"><a href="../bin/setup.html">setup</a>
-  
-    <li class="file"><a href="../doc/ChangeBranchTest_html.html">ChangeBranchTest.html</a>
-  
-    <li class="file"><a href="../doc/ConfigurationTest_html.html">ConfigurationTest.html</a>
-  
-    <li class="file"><a href="../doc/CreateTest_html.html">CreateTest.html</a>
-  
-    <li class="file"><a href="../doc/Gemfile_html.html">Gemfile.html</a>
-  
-    <li class="file"><a href="../doc/Gemfile_lock_html.html">Gemfile_lock.html</a>
-  
-    <li class="file"><a href="../doc/README_md_html.html">README_md.html</a>
-  
-    <li class="file"><a href="../doc/Rakefile_html.html">Rakefile.html</a>
-  
-    <li class="file"><a href="../doc/UpdateTest_html.html">UpdateTest.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion_html.html">Vermillion.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Cfg_html.html">Cfg.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller_html.html">Controller.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Base_html.html">Base.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Change_html.html">Change.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Create_html.html">Create.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Firstrun_html.html">Firstrun.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Status_html.html">Status.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Controller/Update_html.html">Update.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper_html.html">Helper.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/ApiCommunication_html.html">ApiCommunication.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/Endpoint_html.html">Endpoint.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/Formatting_html.html">Formatting.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/Network_html.html">Network.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/Results_html.html">Results.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Helper/Time_html.html">Time.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Request_html.html">Request.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Router_html.html">Router.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Test_html.html">Test.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Test/Base_html.html">Base.html</a>
-  
-    <li class="file"><a href="../doc/Vermillion/Utils_html.html">Utils.html</a>
-  
-    <li class="file"><a href="../doc/bin/setup_html.html">setup.html</a>
-  
-    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
-  
-    <li class="file"><a href="../doc/doc/created_rid_html.html">created_rid.html</a>
-  
-    <li class="file"><a href="../doc/index_html.html">index.html</a>
-  
-    <li class="file"><a href="../doc/js/darkfish_js.html">darkfish.js</a>
-  
-    <li class="file"><a href="../doc/js/jquery_js.html">jquery.js</a>
-  
-    <li class="file"><a href="../doc/js/navigation_js.html">navigation.js</a>
-  
-    <li class="file"><a href="../doc/js/search_js.html">search.js</a>
-  
-    <li class="file"><a href="../doc/js/search_index_js.html">search_index.js</a>
-  
-    <li class="file"><a href="../doc/js/searcher_js.html">searcher.js</a>
-  
-    <li class="file"><a href="../doc/rdoc_css.html">rdoc.css</a>
-  
-    <li class="file"><a href="../doc/table_of_contents_html.html">table_of_contents.html</a>
-  
-    <li class="file"><a href="../doc/vermillion-client_gemspec_html.html">vermillion-client_gemspec.html</a>
   
     <li class="file"><a href="../vermillion-client_gemspec.html">vermillion-client.gemspec</a>
   
@@ -292,13 +206,13 @@
 
         <div class="method-description">
           
-          
+          <p>Perform first run tasks and create or read config file values</p>
           
           
 
           
           <div class="method-source-code" id="bootstrap-21-source">
-            <pre><span class="ruby-comment"># File lib/client/config.rb, line 5</span>
+            <pre><span class="ruby-comment"># File lib/client/config.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">bootstrap!</span>
   <span class="ruby-identifier">populate_config</span>
 
@@ -322,39 +236,6 @@
       </div><!-- bootstrap-21-method -->
 
     
-      <div id="method-i-constant-3F" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">constant?</span><span
-            class="method-args">(name)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="constant-3F-source">
-            <pre><span class="ruby-comment"># File lib/client/config.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">constant?</span>(<span class="ruby-identifier">name</span>)
-  <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">upcase</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- constant-3F-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- constant-3F-method -->
-
-    
       <div id="method-i-get" class="method-detail ">
         
         <div class="method-heading">
@@ -368,13 +249,17 @@
 
         <div class="method-description">
           
-          
+          <p>Get a specific value from the config file data Params:</p>
+<dl class="rdoc-list note-list"><dt><code>name</code>
+<dd>
+<p>String/symbol key value</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="get-source">
-            <pre><span class="ruby-comment"># File lib/client/config.rb, line 41</span>
+            <pre><span class="ruby-comment"># File lib/client/config.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">name</span>)
   <span class="ruby-ivar">@yml</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -401,13 +286,13 @@
 
         <div class="method-description">
           
-          
+          <p>Returns a hash of all module constants and their values</p>
           
           
 
           
           <div class="method-source-code" id="options-source">
-            <pre><span class="ruby-comment"># File lib/client/config.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/client/config.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
   <span class="ruby-identifier">keys</span> = <span class="ruby-constant">Vermillion</span>.<span class="ruby-identifier">constants</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">constant?</span>(<span class="ruby-identifier">name</span>) }
   <span class="ruby-identifier">hash</span> = {}
@@ -438,7 +323,7 @@
 
         <div class="method-description">
           
-          
+          <p>Populates the internal hash which stores any values set in the config file</p>
           
           
 
@@ -448,8 +333,6 @@
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">populate_config</span>
   <span class="ruby-identifier">file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~/.vermillion.yml&quot;</span>)
   <span class="ruby-identifier">fmt</span> = <span class="ruby-constant">Vermillion</span><span class="ruby-operator">::</span><span class="ruby-constant">Helper</span>.<span class="ruby-identifier">load</span>(<span class="ruby-string">&#39;formatting&#39;</span>)
-
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span> <span class="ruby-identifier">file</span>
 
   <span class="ruby-ivar">@yml</span> = <span class="ruby-identifier">fmt</span>.<span class="ruby-identifier">symbolize</span>(<span class="ruby-operator">::</span><span class="ruby-constant">YAML</span>.<span class="ruby-identifier">load_file</span>(<span class="ruby-identifier">file</span>))
   <span class="ruby-keyword">self</span>

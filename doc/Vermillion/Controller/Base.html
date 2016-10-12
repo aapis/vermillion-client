@@ -106,90 +106,6 @@
   
     <li class="file"><a href="../../bin/setup.html">setup</a>
   
-    <li class="file"><a href="../../doc/ChangeBranchTest_html.html">ChangeBranchTest.html</a>
-  
-    <li class="file"><a href="../../doc/ConfigurationTest_html.html">ConfigurationTest.html</a>
-  
-    <li class="file"><a href="../../doc/CreateTest_html.html">CreateTest.html</a>
-  
-    <li class="file"><a href="../../doc/Gemfile_html.html">Gemfile.html</a>
-  
-    <li class="file"><a href="../../doc/Gemfile_lock_html.html">Gemfile_lock.html</a>
-  
-    <li class="file"><a href="../../doc/README_md_html.html">README_md.html</a>
-  
-    <li class="file"><a href="../../doc/Rakefile_html.html">Rakefile.html</a>
-  
-    <li class="file"><a href="../../doc/UpdateTest_html.html">UpdateTest.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion_html.html">Vermillion.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Cfg_html.html">Cfg.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller_html.html">Controller.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Base_html.html">Base.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Change_html.html">Change.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Create_html.html">Create.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Firstrun_html.html">Firstrun.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Status_html.html">Status.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Controller/Update_html.html">Update.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper_html.html">Helper.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/ApiCommunication_html.html">ApiCommunication.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/Endpoint_html.html">Endpoint.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/Formatting_html.html">Formatting.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/Network_html.html">Network.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/Results_html.html">Results.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Helper/Time_html.html">Time.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Request_html.html">Request.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Router_html.html">Router.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Test_html.html">Test.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Test/Base_html.html">Base.html</a>
-  
-    <li class="file"><a href="../../doc/Vermillion/Utils_html.html">Utils.html</a>
-  
-    <li class="file"><a href="../../doc/bin/setup_html.html">setup.html</a>
-  
-    <li class="file"><a href="../../doc/created_rid.html">created.rid</a>
-  
-    <li class="file"><a href="../../doc/doc/created_rid_html.html">created_rid.html</a>
-  
-    <li class="file"><a href="../../doc/index_html.html">index.html</a>
-  
-    <li class="file"><a href="../../doc/js/darkfish_js.html">darkfish.js</a>
-  
-    <li class="file"><a href="../../doc/js/jquery_js.html">jquery.js</a>
-  
-    <li class="file"><a href="../../doc/js/navigation_js.html">navigation.js</a>
-  
-    <li class="file"><a href="../../doc/js/search_js.html">search.js</a>
-  
-    <li class="file"><a href="../../doc/js/search_index_js.html">search_index.js</a>
-  
-    <li class="file"><a href="../../doc/js/searcher_js.html">searcher.js</a>
-  
-    <li class="file"><a href="../../doc/rdoc_css.html">rdoc.css</a>
-  
-    <li class="file"><a href="../../doc/table_of_contents_html.html">table_of_contents.html</a>
-  
-    <li class="file"><a href="../../doc/vermillion-client_gemspec_html.html">vermillion-client_gemspec.html</a>
-  
     <li class="file"><a href="../../vermillion-client_gemspec.html">vermillion-client.gemspec</a>
   
   </ul>
@@ -403,13 +319,17 @@ access to request parameters</p>
 
         <div class="method-description">
           
-          <p>Determines if the command can execute</p>
+          <p>Determines if the command can execute Params:</p>
+<dl class="rdoc-list note-list"><dt><code>command</code>
+<dd>
+<p>Symbol containing the command we want to execute</p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="can_exec-3F-source">
-            <pre><span class="ruby-comment"># File lib/client/controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File lib/client/controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">can_exec?</span>(<span class="ruby-identifier">command</span>)
   <span class="ruby-comment"># no command was passed, check if controller has a default method</span>
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:default</span>)
@@ -548,13 +468,13 @@ access to request parameters</p>
 
         <div class="method-description">
           
-          <p>default method called by exec if no argument is passed</p>
+          <p>Default method called by exec if no argument is passed</p>
           
           
 
           
           <div class="method-source-code" id="sample-source">
-            <pre><span class="ruby-comment"># File lib/client/controller.rb, line 61</span>
+            <pre><span class="ruby-comment"># File lib/client/controller.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sample</span>
   <span class="ruby-constant">Notify</span>.<span class="ruby-identifier">warning</span>(<span class="ruby-string">&quot;Method not implemented&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
