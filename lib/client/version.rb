@@ -1,3 +1,4 @@
 module Vermillion
-  VERSION = '0.3.0'.freeze
+  # Program version
+  VERSION = '1.0.0'.freeze
 end

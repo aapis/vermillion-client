@@ -2,6 +2,7 @@ module Vermillion
   class Request
     attr_reader :controller, :command, :custom, :flags, :raw_flags, :param
 
+    # Create the request object, parse ARGV for values
     def initialize
       @controller = nil
       @flags = ARGV.select { |f| f.start_with?('-') }.map { |f| f.split("=").map(&:to_sym) } || []

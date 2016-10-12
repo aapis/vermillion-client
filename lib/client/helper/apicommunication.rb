@@ -1,8 +1,12 @@
 module Vermillion
   module Helper
     module ApiCommunication
+      # Send an HTTP request to one server
+      # Params:
+      # +input+:: The server you want to connect to
+      # +endpoint+:: The REST endpoint you'd like to send a request to
+      # +args+:: Any specific configuration data to send along with the request
       def send_to_one(input, endpoint, args = {})
-        # setup request values
         server, endpoint = setup(input, endpoint, args)
 
         begin
@@ -30,7 +34,11 @@ module Vermillion
         end
       end
 
-      def send_to_all(endpoint, args)
+      # Send HTTP requests to all servers in the local manifest
+      # Params:
+      # +endpoint+:: The REST endpoint you'd like to send a request to
+      # +args+:: Any specific configuration data to send along with the request
+      def send_to_all(endpoint, args = {})
         @config.get(:servers).each do |server|
           send_to_one(server[:name], endpoint, args) if server[:name]
         end
@@ -38,6 +46,11 @@ module Vermillion
 
       private
 
+      # Perform setup tasks in ApiCommuniction.send_to_one
+      # Params:
+      # +input+:: The server you want to connect to
+      # +endpoint+:: The REST endpoint you'd like to send a request to
+      # +args+:: Any specific configuration data to send along with the request
       def setup(input, endpoint, args = {})
         server_name = input
         remote_site = nil

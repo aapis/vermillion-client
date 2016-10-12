@@ -2,14 +2,12 @@ require 'client'
 require 'test/base'
 
 module Vermillion
-  #
-  # @since 0.3.0
+  # Flag to determine if module is running in test mode
   def self.test?
     true
   end
 
-  # define Test namespace
-  # @since 0.3.0
+  # Define Test namespace
   module Test
   end
 end
