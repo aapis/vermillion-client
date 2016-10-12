@@ -1,6 +1,7 @@
 module Vermillion
   module Helper
     class Network
+      # Access the configuration object instance externally
       attr_accessor :config
 
       # Perform a GET request to a specified URL

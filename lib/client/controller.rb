@@ -1,7 +1,10 @@
 module Vermillion
   module Controller
     class Base
-      attr_accessor :config, :request
+      # Access the configuration object instance externally
+      attr_accessor :config
+      # Access the request object instance externally
+      attr_accessor :request
 
       # Exit code to indicate everything is ok!
       OK = 0

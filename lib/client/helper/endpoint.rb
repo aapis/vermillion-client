@@ -1,6 +1,7 @@
 module Vermillion
   module Helper
     class Endpoint
+      # Set the @server variable externally
       attr_writer :server
 
       # Creates the Endpoint object with default values for internal variables

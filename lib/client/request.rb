@@ -1,6 +1,17 @@
 module Vermillion
   class Request
-    attr_reader :controller, :command, :custom, :flags, :raw_flags, :param
+    # Access controller variable property externally
+    attr_reader :controller
+    # Access command variable property externally
+    attr_reader :command
+    # Access custom variable property externally
+    attr_reader :custom
+    # Access flags variable property externally
+    attr_reader :flags
+    # Access raw_flags variable property externally
+    attr_reader :raw_flags
+    # Access param variable property externally
+    attr_reader :param
 
     # Create the request object, parse ARGV for values
     def initialize
