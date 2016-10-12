@@ -1,4 +1,4 @@
-Wed, 12 Oct 2016 13:44:24 -0600
+Wed, 12 Oct 2016 13:45:39 -0600
 ./bin/setup	Thu, 21 Apr 2016 10:21:49 -0600
 ./bin/vermillion	Fri, 07 Oct 2016 15:28:31 -0600
 ./Gemfile	Thu, 21 Apr 2016 10:21:49 -0600
@@ -24,7 +24,6 @@ Wed, 12 Oct 2016 13:44:24 -0600
 ./lib/client.rb	Wed, 12 Oct 2016 12:05:23 -0600
 ./lib/test/base.rb	Wed, 12 Oct 2016 12:05:23 -0600
 ./lib/test.rb	Wed, 12 Oct 2016 12:05:23 -0600
-./pkg/vermillion-client-1.0.0.gem	Wed, 12 Oct 2016 12:05:26 -0600
 ./Rakefile	Fri, 07 Oct 2016 15:28:31 -0600
 ./README.md	Tue, 11 Oct 2016 16:24:09 -0600
 ./test/test_change_branch.rb	Wed, 12 Oct 2016 12:05:23 -0600
