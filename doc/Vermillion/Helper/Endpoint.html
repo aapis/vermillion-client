@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Vermillion::Helper::Endpoint - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../../index.html">Home</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/client/helper/endpoint.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-exists-3F">#exists?</a>
+    
+    <li ><a href="#method-i-get">#get</a>
+    
+    <li ><a href="#method-i-protocol-3D">#protocol=</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../../Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li class="file"><a href="../../README_md.html">README</a>
+  
+    <li class="file"><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="../../bin/setup.html">setup</a>
+  
+    <li class="file"><a href="../../doc/ChangeBranchTest_html.html">ChangeBranchTest.html</a>
+  
+    <li class="file"><a href="../../doc/ConfigurationTest_html.html">ConfigurationTest.html</a>
+  
+    <li class="file"><a href="../../doc/CreateTest_html.html">CreateTest.html</a>
+  
+    <li class="file"><a href="../../doc/Gemfile_html.html">Gemfile.html</a>
+  
+    <li class="file"><a href="../../doc/Gemfile_lock_html.html">Gemfile_lock.html</a>
+  
+    <li class="file"><a href="../../doc/README_md_html.html">README_md.html</a>
+  
+    <li class="file"><a href="../../doc/Rakefile_html.html">Rakefile.html</a>
+  
+    <li class="file"><a href="../../doc/UpdateTest_html.html">UpdateTest.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion_html.html">Vermillion.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Cfg_html.html">Cfg.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller_html.html">Controller.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Base_html.html">Base.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Change_html.html">Change.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Create_html.html">Create.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Firstrun_html.html">Firstrun.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Status_html.html">Status.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Controller/Update_html.html">Update.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper_html.html">Helper.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/ApiCommunication_html.html">ApiCommunication.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/Endpoint_html.html">Endpoint.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/Formatting_html.html">Formatting.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/Network_html.html">Network.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/Results_html.html">Results.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Helper/Time_html.html">Time.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Request_html.html">Request.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Router_html.html">Router.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Test_html.html">Test.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Test/Base_html.html">Base.html</a>
+  
+    <li class="file"><a href="../../doc/Vermillion/Utils_html.html">Utils.html</a>
+  
+    <li class="file"><a href="../../doc/bin/setup_html.html">setup.html</a>
+  
+    <li class="file"><a href="../../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../../doc/doc/created_rid_html.html">created_rid.html</a>
+  
+    <li class="file"><a href="../../doc/index_html.html">index.html</a>
+  
+    <li class="file"><a href="../../doc/js/darkfish_js.html">darkfish.js</a>
+  
+    <li class="file"><a href="../../doc/js/jquery_js.html">jquery.js</a>
+  
+    <li class="file"><a href="../../doc/js/navigation_js.html">navigation.js</a>
+  
+    <li class="file"><a href="../../doc/js/search_js.html">search.js</a>
+  
+    <li class="file"><a href="../../doc/js/search_index_js.html">search_index.js</a>
+  
+    <li class="file"><a href="../../doc/js/searcher_js.html">searcher.js</a>
+  
+    <li class="file"><a href="../../doc/rdoc_css.html">rdoc.css</a>
+  
+    <li class="file"><a href="../../doc/table_of_contents_html.html">table_of_contents.html</a>
+  
+    <li class="file"><a href="../../doc/vermillion-client_gemspec_html.html">vermillion-client_gemspec.html</a>
+  
+    <li class="file"><a href="../../vermillion-client_gemspec.html">vermillion-client.gemspec</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../ChangeBranchTest.html">ChangeBranchTest</a>
+  
+    <li><a href="../../ConfigurationTest.html">ConfigurationTest</a>
+  
+    <li><a href="../../CreateTest.html">CreateTest</a>
+  
+    <li><a href="../../UpdateTest.html">UpdateTest</a>
+  
+    <li><a href="../../Vermillion.html">Vermillion</a>
+  
+    <li><a href="../../Vermillion/Cfg.html">Vermillion::Cfg</a>
+  
+    <li><a href="../../Vermillion/Controller.html">Vermillion::Controller</a>
+  
+    <li><a href="../../Vermillion/Controller/Base.html">Vermillion::Controller::Base</a>
+  
+    <li><a href="../../Vermillion/Controller/Change.html">Vermillion::Controller::Change</a>
+  
+    <li><a href="../../Vermillion/Controller/Create.html">Vermillion::Controller::Create</a>
+  
+    <li><a href="../../Vermillion/Controller/Firstrun.html">Vermillion::Controller::Firstrun</a>
+  
+    <li><a href="../../Vermillion/Controller/Status.html">Vermillion::Controller::Status</a>
+  
+    <li><a href="../../Vermillion/Controller/Update.html">Vermillion::Controller::Update</a>
+  
+    <li><a href="../../Vermillion/Helper.html">Vermillion::Helper</a>
+  
+    <li><a href="../../Vermillion/Helper/ApiCommunication.html">Vermillion::Helper::ApiCommunication</a>
+  
+    <li><a href="../../Vermillion/Helper/Endpoint.html">Vermillion::Helper::Endpoint</a>
+  
+    <li><a href="../../Vermillion/Helper/Formatting.html">Vermillion::Helper::Formatting</a>
+  
+    <li><a href="../../Vermillion/Helper/Network.html">Vermillion::Helper::Network</a>
+  
+    <li><a href="../../Vermillion/Helper/Results.html">Vermillion::Helper::Results</a>
+  
+    <li><a href="../../Vermillion/Helper/Time.html">Vermillion::Helper::Time</a>
+  
+    <li><a href="../../Vermillion/Request.html">Vermillion::Request</a>
+  
+    <li><a href="../../Vermillion/Router.html">Vermillion::Router</a>
+  
+    <li><a href="../../Vermillion/Test.html">Vermillion::Test</a>
+  
+    <li><a href="../../Vermillion/Test/Base.html">Vermillion::Test::Base</a>
+  
+    <li><a href="../../Vermillion/Utils.html">Vermillion::Utils</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Vermillion::Helper::Endpoint</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-server" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">server</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(initial_path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">initial_path</span>)
+  <span class="ruby-ivar">@path</span> = { <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-identifier">initial_path</span> }
+  <span class="ruby-ivar">@server</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@protocol</span> = <span class="ruby-string">&quot;http://&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-ivar">@path</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add-method -->
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- delete-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- delete-method -->
+
+    
+      <div id="method-i-exists-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exists?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exists-3F-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">key?</span> <span class="ruby-identifier">key</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- exists-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- exists-3F-method -->
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@path</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get-method -->
+
+    
+      <div id="method-i-protocol-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">protocol=</span><span
+            class="method-args">(use_https)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="protocol-3D-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">protocol=</span>(<span class="ruby-identifier">use_https</span>)
+  <span class="ruby-ivar">@protocol</span> = <span class="ruby-string">&#39;https://&#39;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">use_https</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- protocol-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- protocol-3D-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/client/helper/endpoint.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-ivar">@protocol</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@server</span>
+  <span class="ruby-ivar">@path</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_k</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.0.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
