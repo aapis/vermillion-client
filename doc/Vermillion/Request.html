@@ -193,7 +193,7 @@
 
         <div class="method-description">
         
-        
+        <p>Access command variable property externally</p>
         
         </div>
       </div>
@@ -206,7 +206,7 @@
 
         <div class="method-description">
         
-        
+        <p>Access controller variable property externally</p>
         
         </div>
       </div>
@@ -219,7 +219,7 @@
 
         <div class="method-description">
         
-        
+        <p>Access custom variable property externally</p>
         
         </div>
       </div>
@@ -232,7 +232,7 @@
 
         <div class="method-description">
         
-        
+        <p>Access flags variable property externally</p>
         
         </div>
       </div>
@@ -245,7 +245,7 @@
 
         <div class="method-description">
         
-        
+        <p>Access param variable property externally</p>
         
         </div>
       </div>
@@ -258,7 +258,8 @@
 
         <div class="method-description">
         
-        
+        <p>Access <a href="Request.html#attribute-i-raw_flags">#raw_flags</a> variable
+property externally</p>
         
         </div>
       </div>
@@ -291,7 +292,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/client/request.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/client/request.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@controller</span> = <span class="ruby-keyword">nil</span>
   <span class="ruby-ivar">@flags</span> = <span class="ruby-constant">ARGV</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&#39;-&#39;</span>) }.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;=&quot;</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_sym</span>) } <span class="ruby-operator">||</span> []
