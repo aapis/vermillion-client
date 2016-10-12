@@ -204,13 +204,17 @@
 
         <div class="method-description">
           
-          <p>Create the router object</p>
+          <p>Create the router object Params:</p>
+<dl class="rdoc-list note-list"><dt><code>config_instance</code>
+<dd>
+<p>An instance of <a href="Cfg.html">Vermillion::Cfg</a></p>
+</dd></dl>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/client/router.rb, line 4</span>
+            <pre><span class="ruby-comment"># File lib/client/router.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">config_instance</span>)
   <span class="ruby-ivar">@config</span> = <span class="ruby-identifier">config_instance</span>
 <span class="ruby-keyword">end</span></pre>
@@ -249,7 +253,7 @@
 
           
           <div class="method-source-code" id="pre_exec-source">
-            <pre><span class="ruby-comment"># File lib/client/router.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/client/router.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pre_exec</span>
   <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
 
@@ -291,7 +295,7 @@
 
           
           <div class="method-source-code" id="route-source">
-            <pre><span class="ruby-comment"># File lib/client/router.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/client/router.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">route</span>
   <span class="ruby-identifier">pre_exec</span>
 

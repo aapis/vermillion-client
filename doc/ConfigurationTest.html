@@ -202,13 +202,13 @@
 
         <div class="method-description">
           
-          
+          <p>Test if the config file exists</p>
           
           
 
           
           <div class="method-source-code" id="test_config_exist-source">
-            <pre><span class="ruby-comment"># File test/test_configuration.rb, line 5</span>
+            <pre><span class="ruby-comment"># File test/test_configuration.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_config_exist</span>
   <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~/.vermillion.yml&quot;</span>)
 
@@ -237,13 +237,13 @@
 
         <div class="method-description">
           
-          
+          <p>Test the default method</p>
           
           
 
           
           <div class="method-source-code" id="test_default-source">
-            <pre><span class="ruby-comment"># File test/test_configuration.rb, line 11</span>
+            <pre><span class="ruby-comment"># File test/test_configuration.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_default</span>
   <span class="ruby-identifier">req</span> = <span class="ruby-constant">MockRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:status</span>, <span class="ruby-value">:default</span>)
   <span class="ruby-identifier">cfg</span> = <span class="ruby-constant">Vermillion</span><span class="ruby-operator">::</span><span class="ruby-constant">Cfg</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">populate_config</span>

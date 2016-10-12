@@ -1,11 +1,11 @@
-Wed, 12 Oct 2016 11:51:11 -0600
+Wed, 12 Oct 2016 11:56:50 -0600
 ./bin/setup	Thu, 21 Apr 2016 10:21:49 -0600
 ./bin/vermillion	Fri, 07 Oct 2016 15:28:31 -0600
 ./Gemfile	Thu, 21 Apr 2016 10:21:49 -0600
 ./Gemfile.lock	Thu, 21 Apr 2016 10:21:49 -0600
 ./lib/client/config.rb	Wed, 12 Oct 2016 09:53:05 -0600
-./lib/client/controller/change.rb	Wed, 12 Oct 2016 10:00:47 -0600
-./lib/client/controller/create.rb	Wed, 12 Oct 2016 11:24:58 -0600
+./lib/client/controller/change.rb	Wed, 12 Oct 2016 11:53:26 -0600
+./lib/client/controller/create.rb	Wed, 12 Oct 2016 11:54:57 -0600
 ./lib/client/controller/firstrun.rb	Wed, 12 Oct 2016 11:25:36 -0600
 ./lib/client/controller/status.rb	Wed, 12 Oct 2016 11:26:51 -0600
 ./lib/client/controller/update.rb	Wed, 12 Oct 2016 11:28:12 -0600
@@ -18,16 +18,16 @@ Wed, 12 Oct 2016 11:51:11 -0600
 ./lib/client/helper/time.rb	Wed, 12 Oct 2016 11:50:26 -0600
 ./lib/client/helper.rb	Wed, 12 Oct 2016 09:54:30 -0600
 ./lib/client/request.rb	Wed, 12 Oct 2016 09:54:48 -0600
-./lib/client/router.rb	Wed, 12 Oct 2016 09:56:43 -0600
+./lib/client/router.rb	Wed, 12 Oct 2016 11:55:26 -0600
 ./lib/client/utils.rb	Wed, 12 Oct 2016 09:57:36 -0600
 ./lib/client/version.rb	Wed, 12 Oct 2016 09:57:55 -0600
-./lib/client.rb	Wed, 12 Oct 2016 11:51:02 -0600
+./lib/client.rb	Wed, 12 Oct 2016 11:52:45 -0600
 ./lib/test/base.rb	Tue, 11 Oct 2016 14:41:10 -0600
 ./lib/test.rb	Wed, 12 Oct 2016 09:59:05 -0600
 ./Rakefile	Fri, 07 Oct 2016 15:28:31 -0600
 ./README.md	Tue, 11 Oct 2016 16:24:09 -0600
-./test/test_change_branch.rb	Tue, 11 Oct 2016 16:24:24 -0600
-./test/test_configuration.rb	Tue, 11 Oct 2016 16:24:24 -0600
-./test/test_create.rb	Tue, 11 Oct 2016 16:24:24 -0600
-./test/test_update.rb	Tue, 11 Oct 2016 16:24:24 -0600
-./vermillion-client.gemspec	Fri, 07 Oct 2016 15:28:31 -0600
+./test/test_change_branch.rb	Wed, 12 Oct 2016 11:56:03 -0600
+./test/test_configuration.rb	Wed, 12 Oct 2016 11:56:17 -0600
+./test/test_create.rb	Wed, 12 Oct 2016 11:56:29 -0600
+./test/test_update.rb	Wed, 12 Oct 2016 11:56:47 -0600
+./vermillion-client.gemspec	Wed, 12 Oct 2016 11:53:02 -0600

@@ -1,6 +1,8 @@
 module Vermillion
   class Router
     # Create the router object
+    # Params:
+    # +config_instance+:: An instance of Vermillion::Cfg
     def initialize(config_instance)
       @config = config_instance
     end

@@ -2,6 +2,7 @@ require "test"
 require "client/controller/change"
 
 class ChangeBranchTest < Vermillion::Test::Base
+  # Test changing a branch on one server
   def test_change_branch_one
     req = MockRequest.new(:change, :branch)
     cfg = Vermillion::Cfg.new.populate_config

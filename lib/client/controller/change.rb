@@ -6,7 +6,7 @@ module Vermillion
       # Prepare to execute the requested method
       def pre_exec
         OptionParser.new do |opt|
-          opt.banner = "#{Vermillion::PACKAGE_NAME} change [...-flags]"
+          opt.banner = "vermillion change [...-flags]"
 
           opt.on("-t", "--to=TO", "Branch to change to") { |o| @to = o }
         end.parse!

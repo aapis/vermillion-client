@@ -200,13 +200,13 @@
 
         <div class="method-description">
           
-          
+          <p>Test the default method</p>
           
           
 
           
           <div class="method-source-code" id="test_default-source">
-            <pre><span class="ruby-comment"># File test/test_create.rb, line 5</span>
+            <pre><span class="ruby-comment"># File test/test_create.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_default</span>
   <span class="ruby-identifier">req</span> = <span class="ruby-constant">MockRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:create</span>, <span class="ruby-value">:default</span>, <span class="ruby-node">&quot;test-sample-#{Time.now.to_i}&quot;</span>)
   <span class="ruby-identifier">cfg</span> = <span class="ruby-constant">Vermillion</span><span class="ruby-operator">::</span><span class="ruby-constant">Cfg</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">populate_config</span>

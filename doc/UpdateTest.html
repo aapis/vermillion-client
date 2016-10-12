@@ -202,13 +202,13 @@
 
         <div class="method-description">
           
-          
+          <p>Test updating the config manifest on one server</p>
           
           
 
           
           <div class="method-source-code" id="test_update_config-source">
-            <pre><span class="ruby-comment"># File test/test_update.rb, line 14</span>
+            <pre><span class="ruby-comment"># File test/test_update.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_update_config</span>
   <span class="ruby-identifier">req</span> = <span class="ruby-constant">MockRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:update</span>, <span class="ruby-value">:one</span>, <span class="ruby-value">:local</span>)
   <span class="ruby-identifier">cfg</span> = <span class="ruby-constant">Vermillion</span><span class="ruby-operator">::</span><span class="ruby-constant">Cfg</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">populate_config</span>
@@ -240,13 +240,13 @@
 
         <div class="method-description">
           
-          
+          <p>Test updating one server</p>
           
           
 
           
           <div class="method-source-code" id="test_update_one-source">
-            <pre><span class="ruby-comment"># File test/test_update.rb, line 5</span>
+            <pre><span class="ruby-comment"># File test/test_update.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_update_one</span>
   <span class="ruby-identifier">req</span> = <span class="ruby-constant">MockRequest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:update</span>, <span class="ruby-value">:one</span>, <span class="ruby-string">&quot;local/vermillion-server&quot;</span>)
   <span class="ruby-identifier">cfg</span> = <span class="ruby-constant">Vermillion</span><span class="ruby-operator">::</span><span class="ruby-constant">Cfg</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">populate_config</span>
